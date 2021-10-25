@@ -1,0 +1,128 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "9fac34ce-487a-4f9a-b34d-505fd7cbb5c0",
+            "actions": [
+                {
+                    "name": "Hit",
+                    "type": "Button",
+                    "id": "47b45947-3028-4be7-84d6-e1eef7dab35d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Dodge",
+                    "type": "Button",
+                    "id": "117a0252-8b98-4efa-8f76-da64a1f47d4a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "006a6d8d-5524-426f-b45e-346790aff18a",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "c415b5ce-4feb-4334-9673-255ddbc5289d",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "PickUp",
+                    "type": "Button",
+                    "id": "b2b908eb-e9f9-49a2-a7e0-068f884c0e8b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "aaed7ac6-93b2-4282-900c-1611bce21bda",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "261a5f19-5877-4f2d-8af2-1dcb1db18ab0",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "31a34a65-f3be-46a6-8c87-077b25330247",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dodge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7880a9ac-1856-4314-8c7d-6eb69d8a2829",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d66408d-6b2c-4cf3-84b9-70d00c72a376",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f3faffa3-e602-4a21-85a8-4cdc1e80c17f",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cce6ef15-7c91-4c52-adc1-00cd385be9e0",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
