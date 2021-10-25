@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 
     Vector2 move;
     Vector2 rotate;
+    public float playerSpeed = 5f;
+    private float keyboardMove;
 
     private void Awake() {
         controls = new PlayerControls();
@@ -18,6 +20,9 @@ public class Player : MonoBehaviour
 
         controls.Gameplay.Look.performed += context => rotate = context.ReadValue<Vector2>();
         controls.Gameplay.Look.canceled += context => rotate = Vector2.zero;
+
+        controls.Gameplay.WASD.performed += context => move = context.ReadValue<Vector2>();
+        controls.Gameplay.WASD.canceled += context => rotate = Vector2.zero;
 
         //Example for button push
         //controls.Gameplay.hit.performed += context => hit();

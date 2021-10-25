@@ -65,6 +65,38 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""KHit"",
+                    ""type"": ""Button"",
+                    ""id"": ""62835e6c-33f5-4318-89f6-b83af3454734"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""KDodge"",
+                    ""type"": ""Button"",
+                    ""id"": ""9845589f-cdc0-4866-ba59-109832e8ef09"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""KPickup"",
+                    ""type"": ""Button"",
+                    ""id"": ""d876b37e-e5f0-4d85-8601-15e3518f65e5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""type"": ""Button"",
+                    ""id"": ""b3149f8e-2d92-4846-bcb7-43594c355486"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -133,6 +165,94 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""461289ea-7a56-4344-a0ce-cc6a07edaa0e"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KHit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5dbb049e-0c4e-4129-90ee-fb4afa88d73b"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KDodge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1e14fb5-4232-40b2-aa19-e752f752ece8"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KPickup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""217826eb-a660-4748-bffa-e3aa45398e73"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WASD"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""f01089ab-df05-4208-8a00-279976a68812"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WASD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a6ad4d3c-87d8-4f9c-a12a-92e6e70d5b3b"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WASD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""81def3d4-a7c9-4690-9d43-0ed9fec0b3e5"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WASD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""50f1f13a-096d-4147-9f84-84f92b7cc51a"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WASD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -147,6 +267,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_Look = m_Gameplay.FindAction("Look", throwIfNotFound: true);
         m_Gameplay_PickUp = m_Gameplay.FindAction("PickUp", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+        m_Gameplay_KHit = m_Gameplay.FindAction("KHit", throwIfNotFound: true);
+        m_Gameplay_KDodge = m_Gameplay.FindAction("KDodge", throwIfNotFound: true);
+        m_Gameplay_KPickup = m_Gameplay.FindAction("KPickup", throwIfNotFound: true);
+        m_Gameplay_WASD = m_Gameplay.FindAction("WASD", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -202,6 +326,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Look;
     private readonly InputAction m_Gameplay_PickUp;
     private readonly InputAction m_Gameplay_Pause;
+    private readonly InputAction m_Gameplay_KHit;
+    private readonly InputAction m_Gameplay_KDodge;
+    private readonly InputAction m_Gameplay_KPickup;
+    private readonly InputAction m_Gameplay_WASD;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -212,6 +340,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Look => m_Wrapper.m_Gameplay_Look;
         public InputAction @PickUp => m_Wrapper.m_Gameplay_PickUp;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
+        public InputAction @KHit => m_Wrapper.m_Gameplay_KHit;
+        public InputAction @KDodge => m_Wrapper.m_Gameplay_KDodge;
+        public InputAction @KPickup => m_Wrapper.m_Gameplay_KPickup;
+        public InputAction @WASD => m_Wrapper.m_Gameplay_WASD;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -239,6 +371,18 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @KHit.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnKHit;
+                @KHit.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnKHit;
+                @KHit.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnKHit;
+                @KDodge.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnKDodge;
+                @KDodge.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnKDodge;
+                @KDodge.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnKDodge;
+                @KPickup.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnKPickup;
+                @KPickup.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnKPickup;
+                @KPickup.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnKPickup;
+                @WASD.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWASD;
+                @WASD.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWASD;
+                @WASD.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWASD;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -261,6 +405,18 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @KHit.started += instance.OnKHit;
+                @KHit.performed += instance.OnKHit;
+                @KHit.canceled += instance.OnKHit;
+                @KDodge.started += instance.OnKDodge;
+                @KDodge.performed += instance.OnKDodge;
+                @KDodge.canceled += instance.OnKDodge;
+                @KPickup.started += instance.OnKPickup;
+                @KPickup.performed += instance.OnKPickup;
+                @KPickup.canceled += instance.OnKPickup;
+                @WASD.started += instance.OnWASD;
+                @WASD.performed += instance.OnWASD;
+                @WASD.canceled += instance.OnWASD;
             }
         }
     }
@@ -273,5 +429,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnPickUp(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnKHit(InputAction.CallbackContext context);
+        void OnKDodge(InputAction.CallbackContext context);
+        void OnKPickup(InputAction.CallbackContext context);
+        void OnWASD(InputAction.CallbackContext context);
     }
 }
