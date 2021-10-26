@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     PlayerControls controls;
+    public Animator _animator;
 
     Vector2 move;
     Vector2 rotate;
@@ -30,6 +31,10 @@ public class Player : MonoBehaviour
 
     private void Update() {
         Vector2 m = new Vector2(move.x, move.y) * Time.deltaTime;
+
+        _animator.SetFloat("x", m.x);
+        _animator.SetFloat("y", m.y);
+        _animator.SetFloat("Speed", m.sqrMagnitude*1000);
 
         transform.Translate(m, Space.World);
 
