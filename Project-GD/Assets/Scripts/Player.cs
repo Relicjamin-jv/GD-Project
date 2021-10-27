@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         controls.Gameplay.Look.canceled += context => rotate = Vector2.zero;
 
         controls.Gameplay.WASD.performed += context => move = context.ReadValue<Vector2>();
-        controls.Gameplay.WASD.canceled += context => rotate = Vector2.zero;
+        controls.Gameplay.WASD.canceled += context => move = Vector2.zero;
 
         //Example for button push
         //controls.Gameplay.hit.performed += context => hit();
