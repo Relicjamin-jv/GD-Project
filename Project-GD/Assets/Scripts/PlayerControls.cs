@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/PlayerControls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/PlayerControls.inputactions'
 
 using System;
 using System.Collections;
@@ -94,6 +94,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": ""WASD"",
                     ""type"": ""Button"",
                     ""id"": ""b3149f8e-2d92-4846-bcb7-43594c355486"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""c0c74b4f-1e5e-493a-a9a5-09fb33078c95"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -253,6 +261,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""WASD"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22a8bb03-cc80-4f93-877a-8216a1cb46af"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -271,6 +290,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_KDodge = m_Gameplay.FindAction("KDodge", throwIfNotFound: true);
         m_Gameplay_KPickup = m_Gameplay.FindAction("KPickup", throwIfNotFound: true);
         m_Gameplay_WASD = m_Gameplay.FindAction("WASD", throwIfNotFound: true);
+        m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -330,6 +350,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_KDodge;
     private readonly InputAction m_Gameplay_KPickup;
     private readonly InputAction m_Gameplay_WASD;
+    private readonly InputAction m_Gameplay_Attack;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -344,6 +365,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @KDodge => m_Wrapper.m_Gameplay_KDodge;
         public InputAction @KPickup => m_Wrapper.m_Gameplay_KPickup;
         public InputAction @WASD => m_Wrapper.m_Gameplay_WASD;
+        public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -383,6 +405,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @WASD.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWASD;
                 @WASD.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWASD;
                 @WASD.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWASD;
+                @Attack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -417,6 +442,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @WASD.started += instance.OnWASD;
                 @WASD.performed += instance.OnWASD;
                 @WASD.canceled += instance.OnWASD;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
         }
     }
@@ -433,5 +461,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnKDodge(InputAction.CallbackContext context);
         void OnKPickup(InputAction.CallbackContext context);
         void OnWASD(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
 }
