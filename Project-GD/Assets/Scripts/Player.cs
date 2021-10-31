@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     private bool attack = false;
     private float timer;
     GameObject initAttack;
+    public static int numberOfAttacks = 0;
+    Rigidbody2D _arb;
 
     private void Start()
     {
@@ -33,7 +35,7 @@ public class Player : MonoBehaviour
         controls.Gameplay.WASD.performed += context => move = context.ReadValue<Vector2>();
         controls.Gameplay.WASD.canceled += context => move = Vector2.zero;
 
-        controls.Gameplay.Attack.performed += context => attack = canAttack();
+        controls.Gameplay.Attack.started += context => attack = canAttack();
         controls.Gameplay.Attack.canceled += context => attack = false;
 
         //Example for button push
@@ -80,80 +82,38 @@ public class Player : MonoBehaviour
 
     void attacking(){
          //where to attack logic
-        float timerAttack = .3f;
-        if (attack && timer > 0f)
+        if (attack && numberOfAttacks < 1)
         {
-            if (!initAttack)
-            {
-                initAttack = Instantiate(attackObj);
-                initAttack.transform.parent = this.transform;
+            if(move.x == 1 && move.y == 0){ //moving E
+                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x + offset.x, transform.position.y, 0f), Quaternion.Euler(0f, 0f, 0f));
             }
-            //right side movement
-            if (move.x == 1 && move.y == 0)
-            {  //if the player is moving right
-                Debug.Log("Rotate E");
-                initAttack.transform.rotation = Quaternion.Euler(0f, 0f, 0f); //set the rotation to this
-                initAttack.transform.position = new Vector3(this.transform.position.x + offset.x, this.transform.position.y, 0f);
+            if(move.x > 0 && move.y > 0){ //moving NE
+                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x + offset.x, transform.position.y + offset.y, 0f), Quaternion.Euler(0f, 0f, 45f));
             }
-            if (move.x > 0 && move.y > 0)
-            { //if the player if moving to the north east
-                Debug.Log("Rotate NE");
-                initAttack.transform.rotation = Quaternion.Euler(0f, 0f, 45f); //set the rotation to this
-                initAttack.transform.position = new Vector3(this.transform.position.x + offset.x, this.transform.position.y + offset.y, 0f);
+            if(move.x > 0 && move.y < 0){ //moving SE
+                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x + offset.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, -45f));
             }
-            if (move.x > 0 && move.y < 0)
-            { //if the player if moving to the sorth east
-                Debug.Log("Rotate SE");
-                initAttack.transform.rotation = Quaternion.Euler(0f, 0f, -45f); //set the rotation to this
-                initAttack.transform.position = new Vector3(this.transform.position.x + offset.x, this.transform.position.y - offset.y, 0f);
+            if(move.x == 0 && move.y == 1){ //moving N
+                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y + offset.y, 0f), Quaternion.Euler(0f, 0f, 90f));
+            }
+            if(move.x == 0 && move.y == -1){ //moving S
+                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x , transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, -90f));
+            }
+            if(move.x == -1 && move.y == 0){ //moving W
+                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x - offset.x, transform.position.y, 0f), Quaternion.Euler(0f, 0f, 180f));
+            }
+            if(move.x < 0 && move.y > 0){ //moving NW
+                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x - offset.x, transform.position.y + offset.y, 0f), Quaternion.Euler(0f, 0f, 135f));
+            }
+            if(move.x < 0 && move.y < 0){ //moving SW
+                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x - offset.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, -135f));
+            }
+            if(move.x == 0 && move.y == 0){
+                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, 270f));
             }
 
-            //directly up and down
-            if (move.x == 0 && move.y == 1)
-            {  //if the player is moving up
-                Debug.Log("Rotate N");
-                initAttack.transform.rotation = Quaternion.Euler(0f, 0f, 90f); //set the rotation to this
-                initAttack.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + offset.y, 0f);
-            }
-            if (move.x == 0 && move.y == -1)
-            {  //if the player is moving down
-                Debug.Log("Rotate S");
-                initAttack.transform.rotation = Quaternion.Euler(0f, 0f, -90f); //set the rotation to this
-                initAttack.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - offset.y, 0f);
-            }
-
-            //player is moving left
-            if (move.x == -1 && move.y == 0)
-            {  //if the player is moving right
-                Debug.Log("Rotate W");
-                initAttack.transform.rotation = Quaternion.Euler(0f, 0f, 180f); //set the rotation to this
-                initAttack.transform.position = new Vector3(this.transform.position.x - offset.x, this.transform.position.y, 0f);
-            }
-            if (move.x < 0 && move.y > 0)
-            { //if the player if moving to the north west
-                Debug.Log("Rotate NW");
-                initAttack.transform.rotation = Quaternion.Euler(0f, 0f, 135f); //set the rotation to this
-                initAttack.transform.position = new Vector3(this.transform.position.x - offset.x, this.transform.position.y + offset.y, 0f);
-            }
-            if (move.x < 0 && move.y < 0)
-            { //if the player if moving to the sorth west
-                Debug.Log("Rotate SW");
-                initAttack.transform.rotation = Quaternion.Euler(0f, 0f, -135f); //set the rotation to this
-                initAttack.transform.position = new Vector3(this.transform.position.x - offset.x, this.transform.position.y - offset.y, 0f);
-            }
-            if (move.x == 0 && move.y == 0)
-            { //if the player if moving to the sorth west
-                Debug.Log("Rotate SW");
-                initAttack.transform.rotation = Quaternion.Euler(0f, 0f, 270f); //set the rotation to this
-                initAttack.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - offset.y, 0f);
-            }
-        }
-        else
-        {
-            Destroy(initAttack);
         }
         timer -= Time.deltaTime;
-        timerAttack -= Time.deltaTime;
         Debug.Log(timer);
     }
 }
