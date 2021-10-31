@@ -1205,6 +1205,8 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   playerSpeed: 5
   attackObj: {fileID: 4561809996742062393, guid: 781b87ed67b70e546b647cd845c2bead, type: 3}
+  arrowObj: {fileID: 6288127640012987930, guid: 9ace8e81be1822343ba34d2a5fed3934, type: 3}
+  arrowSpeed: 100
 --- !u!95 &709354278
 Animator:
   serializedVersion: 3
