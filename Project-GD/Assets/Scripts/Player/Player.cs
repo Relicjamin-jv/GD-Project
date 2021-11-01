@@ -25,6 +25,10 @@ public class Player : MonoBehaviour
     public float arrowSpeed = 10f;
     bool canMove = true;
 
+    public static int numberOfRangedAttack = 3;
+    
+
+
     private void Start()
     {
         offset = new Vector3(.5f, .5f, 0f);
@@ -45,8 +49,19 @@ public class Player : MonoBehaviour
         controls.Gameplay.Attack.canceled += context => attack = false;
 
         //ranged
-        controls.Gameplay.RangedAttack.started += context => {rangedAttack = true; canMove = false;};
-        controls.Gameplay.RangedAttack.canceled += context => { rangeFire(); rangePower = 0f; rangedAttack = false; canMove = true;};
+        controls.Gameplay.RangedAttack.started += context => {
+            if(numberOfRangedAttack > 0){
+                rangedAttack = true; 
+                canMove = false;
+            }
+        };
+        controls.Gameplay.RangedAttack.canceled += context => { 
+            if(numberOfRangedAttack > 0){
+                rangeFire(); 
+            }
+            rangePower = 0f; 
+            rangedAttack = false; 
+            canMove = true;};
     }
 
     private void Update()
@@ -66,12 +81,13 @@ public class Player : MonoBehaviour
         //melee attack logic
         meleeAttacking();
 
-        if (rangedAttack)
+        if (rangedAttack && numberOfRangedAttack > 0)
         { //how much power to put behind it
+            Debug.Log(numberOfRangedAttack);
             powerCharge();
         } //the button has been released fire the arrow based on how much power is behind it
 
-        Debug.Log(rangePower);
+
     }
 
     private void OnEnable()
@@ -133,7 +149,7 @@ public class Player : MonoBehaviour
                 GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x - offset.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, -135f));
             }
             if (move.x == 0 && move.y == 0)
-            {
+            { //not moving 
                 GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, 270f));
             }
 
@@ -183,8 +199,8 @@ public class Player : MonoBehaviour
             GameObject attackGameObj = Instantiate(arrowObj, new Vector3(this.transform.position.x - offset.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, -135f));
             attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(-arrowSpeed, -arrowSpeed) * Mathf.Min(rangePower, 3f)); //returns a smaller value if rangedPower goes over 3
         }
-        if (move.x == 0 && move.y == 0)
-        {
+        if (move.x == 0 && move.y == 0) 
+        {   //not moving
             GameObject attackGameObj = Instantiate(arrowObj, new Vector3(this.transform.position.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, 270f));
             attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, -arrowSpeed) * Mathf.Min(rangePower, 3f)); //returns a smaller value if rangedPower goes over 3
         }
