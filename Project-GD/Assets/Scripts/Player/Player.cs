@@ -7,31 +7,29 @@ public class Player : MonoBehaviour
 {
     PlayerControls controls;
     public Animator _animator;
-    public Animator _attackAnimator;
     public Vector3 offset;
-
     Vector2 move;
     public float playerSpeed = 5f;
     private float keyboardMove;
     public GameObject attackObj;
     private bool attack = false;
     private float timer;
-    GameObject initAttack;
     public static int numberOfAttacks = 0;
-    Rigidbody2D _arb;
     float rangePower;
     bool rangedAttack = false;
     public GameObject arrowObj;
     public float arrowSpeed = 10f;
     bool canMove = true;
-
     public static int numberOfRangedAttack = 3;
+    public static int health = 10;
+    public static SpriteRenderer _sp;
     
 
 
     private void Start()
     {
         offset = new Vector3(.5f, .5f, 0f);
+        _sp = gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void Awake()
@@ -66,6 +64,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(health);
         //movement
         Vector2 m = new Vector2(move.x, move.y) * Time.deltaTime;
 
