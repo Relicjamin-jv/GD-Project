@@ -6303,7 +6303,7 @@ MonoBehaviour:
   chaseSpeed: 1
   partrolSpeed: 0.2
   health: 5
-  distanceToPlayerToChase: 0
+  distanceToPlayerToChase: 10
   timerAttack: 3
 --- !u!61 &1475182312
 BoxCollider2D:
