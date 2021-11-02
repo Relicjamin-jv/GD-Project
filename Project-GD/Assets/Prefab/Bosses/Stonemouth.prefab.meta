@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Project-GD/Assets/Prefab/slash.prefab.meta
+guid: 27fd9703ee806804c96416cae7e3e1d5
+=======
 guid: 1222741c73d2c824f91348cabb525c33
+>>>>>>> main:Project-GD/Assets/Prefab/Bosses/Stonemouth.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

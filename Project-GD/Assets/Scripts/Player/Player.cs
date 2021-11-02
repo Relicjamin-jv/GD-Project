@@ -7,27 +7,29 @@ public class Player : MonoBehaviour
 {
     PlayerControls controls;
     public Animator _animator;
-    public Animator _attackAnimator;
     public Vector3 offset;
-
     Vector2 move;
     public float playerSpeed = .5f;
     private float keyboardMove;
     public GameObject attackObj;
     private bool attack = false;
     private float timer;
-    GameObject initAttack;
     public static int numberOfAttacks = 0;
-    Rigidbody2D _arb;
     float rangePower;
     bool rangedAttack = false;
     public GameObject arrowObj;
     public float arrowSpeed = 10f;
     bool canMove = true;
+    public static int numberOfRangedAttack = 3;
+    public static int health = 10;
+    public static SpriteRenderer _sp;
+    
+
 
     private void Start()
     {
         offset = new Vector3(.5f, .5f, 0f);
+        _sp = gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void Awake()
@@ -45,8 +47,19 @@ public class Player : MonoBehaviour
         controls.Gameplay.Attack.canceled += context => attack = false;
 
         //ranged
-        controls.Gameplay.RangedAttack.started += context => {rangedAttack = true; canMove = false;};
-        controls.Gameplay.RangedAttack.canceled += context => { rangeFire(); rangePower = 0f; rangedAttack = false; canMove = true;};
+        controls.Gameplay.RangedAttack.started += context => {
+            if(numberOfRangedAttack > 0){
+                rangedAttack = true; 
+                canMove = false;
+            }
+        };
+        controls.Gameplay.RangedAttack.canceled += context => { 
+            if(numberOfRangedAttack > 0){
+                rangeFire(); 
+            }
+            rangePower = 0f; 
+            rangedAttack = false; 
+            canMove = true;};
     }
 
     private void Update()
@@ -67,12 +80,10 @@ public class Player : MonoBehaviour
         //melee attack logic
         meleeAttacking();
 
-        if (rangedAttack)
+        if (rangedAttack && numberOfRangedAttack > 0)
         { //how much power to put behind it
             powerCharge();
         } //the button has been released fire the arrow based on how much power is behind it
-
-        Debug.Log(rangePower);
     }
 
     private void OnEnable()
@@ -134,7 +145,7 @@ public class Player : MonoBehaviour
                 GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x - offset.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, -135f));
             }
             if (move.x == 0 && move.y == 0)
-            {
+            { //not moving 
                 GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, 270f));
             }
 
@@ -144,52 +155,11 @@ public class Player : MonoBehaviour
 
     void rangeFire()
     {
-        if (move.x == 1 && move.y == 0)
-        { //moving E
-            GameObject attackGameObj = Instantiate(arrowObj, new Vector3(this.transform.position.x + offset.x, transform.position.y, 0f), Quaternion.Euler(0f, 0f, 0f));
-            attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(arrowSpeed, 0f) * Mathf.Min(rangePower, 3f)); //returns a smaller value if rangedPower goes over 3
-        }
-        if (move.x > 0 && move.y > 0)
-        { //moving NE
-            GameObject attackGameObj = Instantiate(arrowObj, new Vector3(this.transform.position.x + offset.x, transform.position.y + offset.y, 0f), Quaternion.Euler(0f, 0f, 45f));
-            attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(arrowSpeed, arrowSpeed) * Mathf.Min(rangePower, 3f)); //returns a smaller value if rangedPower goes over 3
-        }
-        if (move.x > 0 && move.y < 0)
-        { //moving SE
-            GameObject attackGameObj = Instantiate(arrowObj, new Vector3(this.transform.position.x + offset.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, -45f));
-            attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(arrowSpeed, -arrowSpeed) * Mathf.Min(rangePower, 3f)); //returns a smaller value if rangedPower goes over 3
-        }
-        if (move.x == 0 && move.y == 1)
-        { //moving N
-            GameObject attackGameObj = Instantiate(arrowObj, new Vector3(this.transform.position.x, transform.position.y + offset.y, 0f), Quaternion.Euler(0f, 0f, 90f));
-            attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, arrowSpeed) * Mathf.Min(rangePower, 3f)); //returns a smaller value if rangedPower goes over 3
-        }
-        if (move.x == 0 && move.y == -1)
-        { //moving S
-            GameObject attackGameObj = Instantiate(arrowObj, new Vector3(this.transform.position.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, -90f));
-            attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, -arrowSpeed) * Mathf.Min(rangePower, 3f)); //returns a smaller value if rangedPower goes over 3
-        }
-        if (move.x == -1 && move.y == 0)
-        { //moving W
-            GameObject attackGameObj = Instantiate(arrowObj, new Vector3(this.transform.position.x - offset.x, transform.position.y, 0f), Quaternion.Euler(0f, 0f, 180f));
-            attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(-arrowSpeed, 0f) * Mathf.Min(rangePower, 3f)); //returns a smaller value if rangedPower goes over 3
-        }
-        if (move.x < 0 && move.y > 0)
-        { //moving NW
-            GameObject attackGameObj = Instantiate(arrowObj, new Vector3(this.transform.position.x - offset.x, transform.position.y + offset.y, 0f), Quaternion.Euler(0f, 0f, 135f));
-            attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(-arrowSpeed, arrowSpeed) * Mathf.Min(rangePower, 3f)); //returns a smaller value if rangedPower goes over 3
-        }
-        if (move.x < 0 && move.y < 0)
-        { //moving SW
-            GameObject attackGameObj = Instantiate(arrowObj, new Vector3(this.transform.position.x - offset.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, -135f));
-            attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(-arrowSpeed, -arrowSpeed) * Mathf.Min(rangePower, 3f)); //returns a smaller value if rangedPower goes over 3
-        }
-        if (move.x == 0 && move.y == 0)
-        {
-            GameObject attackGameObj = Instantiate(arrowObj, new Vector3(this.transform.position.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, 270f));
-            attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, -arrowSpeed) * Mathf.Min(rangePower, 3f)); //returns a smaller value if rangedPower goes over 3
-        }
-
+        float angle = Mathf.Atan2(move.x, move.y);
+        float xComp = Mathf.Cos(angle);
+        float yComp = Mathf.Sin(angle);
+        GameObject attackGameObj = Instantiate(arrowObj, new Vector3(this.transform.position.x, transform.position.y, 0f), Quaternion.identity);
+        attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(yComp, xComp) * Mathf.Min(rangePower, 3f) * 100); //returns a smaller value if rangedPower goes over 3
     }
 
     void powerCharge()
