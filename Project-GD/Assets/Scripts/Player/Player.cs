@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public Animator _animator;
     public Vector3 offset;
     Vector2 move;
-    public float playerSpeed = 5f;
+    public float playerSpeed = .5f;
     private float keyboardMove;
     public GameObject attackObj;
     private bool attack = false;
@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
     {
         //movement
         Vector2 m = new Vector2(move.x, move.y) * Time.deltaTime;
+        m *= playerSpeed;
 
         _animator.SetFloat("x", m.x);
         _animator.SetFloat("y", m.y);
