@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//author
 public class slashScript : MonoBehaviour
 {
     public static SpriteRenderer slashSR;
