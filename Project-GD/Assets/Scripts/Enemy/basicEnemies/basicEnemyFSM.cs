@@ -72,7 +72,6 @@ public class basicEnemyFSM : FSM
     protected void UpdatePartrolState()
     {
         curSpeed = partrolSpeed;
-        Debug.Log(nextPos.x + ", " + nextPos.y);
         if (Vector2.Distance(_transform.position, nextPos) < .1f)
         { //it got to its destination
             nextPos = new Vector2(this.transform.position.x + Random.Range(-.5f, .5f), this.transform.position.y + Random.Range(-.5f, .5f));
@@ -123,7 +122,6 @@ public class basicEnemyFSM : FSM
 
     protected void UpdateDeadState()
     {
-        Debug.Log("Destoyed enemy");
         Destroy(gameObject);
     }
 
