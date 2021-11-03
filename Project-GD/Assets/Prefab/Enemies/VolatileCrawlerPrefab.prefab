@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8328786083637347327}
   - component: {fileID: 8328786083637347324}
   - component: {fileID: 8328786083637347325}
+  - component: {fileID: 2031248453}
+  - component: {fileID: 2031248452}
   m_Layer: 0
   m_Name: VolatileCrawlerPrefab
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8328786083637347322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.36, y: -3.85, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.48725, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -102,3 +104,48 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &2031248453
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328786083637347322}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.02118969, y: 0.03261648}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.91524124, y: 0.8912785}
+  m_EdgeRadius: 0
+--- !u!114 &2031248452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328786083637347322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02f0aa3531e25c43b75ed73e7c2062d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curState: 0
+  chaseSpeed: 1
+  partrolSpeed: 0.2
+  health: 5
+  distanceToPlayerToChase: 5
+  timerAttack: 3
+  rangedWeapon: {fileID: 1187531308999579986, guid: 80da9601865a81340bc020fa6c8059fb, type: 3}
