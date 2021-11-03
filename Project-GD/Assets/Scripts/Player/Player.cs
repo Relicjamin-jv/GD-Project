@@ -186,6 +186,21 @@ public class Player : MonoBehaviour
         } else if (tag.Equals("S2Level1Exit"))
         {
             SceneManager.LoadScene("Scene3Level1");
+        } else if (tag.Equals("S1Level2Exit"))
+        {
+            SceneManager.LoadScene("Scene2Level2");
+        } else if (tag.Equals("S2Level2Exit"))
+        {
+            SceneManager.LoadScene("BossSceneLevel1");
+        } else if (tag.Equals("S3Level2Exit"))
+        {
+            SceneManager.LoadScene("Scene1Level3");
+        } else if (tag.Equals("S1Level3Exit"))
+        {
+            SceneManager.LoadScene("Scene2Level3");
+        } else if (tag.Equals("S2Level3Exit"))
+        {
+            SceneManager.LoadScene("BossSceneLevel3");
         }
     }
 
