@@ -10,10 +10,13 @@ public class rangeWeapon : MonoBehaviour
     float previousX = 0f;
     float previousY = 0f;
     float lifeTime = 0f;
+    public bool hitWall = false;
 
+    Rigidbody2D _rigidbody;
     private void Start() {
         _transform = this.transform;
         Player.numberOfRangedAttack--;
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -23,7 +26,6 @@ public class rangeWeapon : MonoBehaviour
         updateVelocity();
         previousX = _transform.position.x; 
         previousY = _transform.position.y;
-
         if(velocity < .2f){
             velocity = 0f;
         }
@@ -34,7 +36,13 @@ public class rangeWeapon : MonoBehaviour
 
     //Gets the change in the x & y positions and returns the value, slows down the rotation of the shuriken
     void updateVelocity(){
-        velocity = (Mathf.Abs(_transform.position.x - previousX) + Mathf.Abs(_transform.position.y - previousY)) / Time.deltaTime;
+        if(!hitWall){
+            velocity = (Mathf.Abs(_transform.position.x - previousX) + Mathf.Abs(_transform.position.y - previousY)) / Time.deltaTime;
+        }else{
+            velocity = 0f;
+            _rigidbody.velocity = Vector3.zero;
+        }
+       
     }
 
 

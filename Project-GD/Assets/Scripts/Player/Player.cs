@@ -167,6 +167,23 @@ public class Player : MonoBehaviour
         rangePower = rangePower + Time.deltaTime;
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        string tag = other.gameObject.tag;
+
+        if(tag == "eAttack"){
+            health--;
+            _sp.color = new Color(1,0,0);
+            slashScript.slashSR.enabled = true;
+            Invoke("resetPlayerColor", .5f);
+        }
+    }
+
+    void resetPlayerColor()
+    {
+        slashScript.slashSR.enabled = false;
+        Player._sp.color = new Color(1, 1, 1);
+    }
+
 
 }
 
