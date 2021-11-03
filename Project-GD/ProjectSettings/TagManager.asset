@@ -6,6 +6,8 @@ TagManager:
   tags:
   - attack
   - eAttack
+  - Level1Exit
+  - S2Level1Exit
   layers:
   - Default
   - TransparentFX

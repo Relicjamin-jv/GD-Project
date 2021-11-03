@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour
             rangePower = 0f; 
             rangedAttack = false; 
             canMove = true;};
+
     }
 
     private void Update()
@@ -176,6 +178,14 @@ public class Player : MonoBehaviour
             slashScript.slashSR.enabled = true;
             Invoke("resetPlayerColor", .5f);
             Destroy(other.gameObject, .5f);
+        }
+
+        if (tag.Equals("Level1Exit"))
+        {
+            SceneManager.LoadScene("Scene2Level1");
+        } else if (tag.Equals("S2Level1Exit"))
+        {
+            SceneManager.LoadScene("Scene3Level1");
         }
     }
 
