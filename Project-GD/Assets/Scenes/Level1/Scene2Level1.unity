@@ -4740,9 +4740,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2459092531242862962, guid: 44a00f5b2c9787e40aacc98164b1da47, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9222880138150455126, guid: 44a00f5b2c9787e40aacc98164b1da47, type: 3}
       propertyPath: m_Name
       value: ColliderPrefab (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222880138150455126, guid: 44a00f5b2c9787e40aacc98164b1da47, type: 3}
+      propertyPath: m_TagString
+      value: S2Level1Exit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44a00f5b2c9787e40aacc98164b1da47, type: 3}
