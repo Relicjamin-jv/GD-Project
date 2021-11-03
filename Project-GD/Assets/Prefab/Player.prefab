@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3424917492302827340}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 3424917492302827341}
-  _attackAnimator: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   playerSpeed: 2.5
   attackObj: {fileID: 4561809996742062393, guid: 781b87ed67b70e546b647cd845c2bead, type: 3}

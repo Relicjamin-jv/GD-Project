@@ -87,6 +87,14 @@ public class basicEnemyFSM : FSM
 
     protected void UpdateChaseState()
     {
+        if (playerTransform.position.x > transform.position.x)
+        {
+            _sp.flipX = true;
+        }
+        else
+        {
+            _sp.flipX = false;
+        }
         curSpeed = chaseSpeed;
         if (Vector2.Distance(_transform.position, playerTransform.position) > 10f)
         { //it got to its destination
@@ -103,6 +111,14 @@ public class basicEnemyFSM : FSM
 
     protected void UpdateAttackState()
     {
+        if (playerTransform.position.x > transform.position.x)
+        {
+            _sp.flipX = true;
+        }
+        else
+        {
+            _sp.flipX = false;
+        }
         if (Vector2.Distance(_transform.position, playerTransform.position) > 1f)
         {
             curState = FSMState.Chase;
