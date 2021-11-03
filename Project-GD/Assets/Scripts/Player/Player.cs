@@ -175,6 +175,7 @@ public class Player : MonoBehaviour
             _sp.color = new Color(1,0,0);
             slashScript.slashSR.enabled = true;
             Invoke("resetPlayerColor", .5f);
+            Destroy(other.gameObject, .5f);
         }
     }
 
