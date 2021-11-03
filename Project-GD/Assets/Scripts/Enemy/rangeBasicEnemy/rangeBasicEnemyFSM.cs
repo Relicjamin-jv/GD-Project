@@ -27,9 +27,6 @@ public class rangeBasicEnemyFSM : FSM
     public float timerAttack = 3f;
     public GameObject rangedWeapon;
 
-
-
-
     protected override void Initialize()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -66,11 +63,6 @@ public class rangeBasicEnemyFSM : FSM
             curState = FSMState.Dead;
         }
 
-        if(playerTransform.position.x > transform.position.x){
-            _sp.flipX = true;
-        }else{
-            _sp.flipX = false;
-        }
     }
 
 
@@ -93,6 +85,11 @@ public class rangeBasicEnemyFSM : FSM
 
     protected void UpdateChaseState()
     {
+        if(playerTransform.position.x > transform.position.x){
+            _sp.flipX = true;
+        }else{
+            _sp.flipX = false;
+        }
         curSpeed = chaseSpeed;
         if (Vector2.Distance(_transform.position, playerTransform.position) > 3f)
         { //it got to its destination
@@ -109,6 +106,11 @@ public class rangeBasicEnemyFSM : FSM
 
     protected void UpdateAttackState()
     {
+        if(playerTransform.position.x > transform.position.x){
+            _sp.flipX = true;
+        }else{
+            _sp.flipX = false;
+        }
         if (Vector2.Distance(_transform.position, playerTransform.position) > 3f)
         {
             curState = FSMState.Chase;
