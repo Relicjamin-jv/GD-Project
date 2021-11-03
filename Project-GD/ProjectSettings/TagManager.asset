@@ -11,6 +11,7 @@ TagManager:
   - S1Level2Exit
   - S2Level2Exit
   - S1Level3Exit
+  - S2Level3Exit
   layers:
   - Default
   - TransparentFX
