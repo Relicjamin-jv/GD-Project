@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7749214121177521291}
   - component: {fileID: -5387795868230670989}
   - component: {fileID: 3315681631379045027}
+  - component: {fileID: -4891137634336679092}
   m_Layer: 0
   m_Name: Level1BossGridPrefab
   m_TagString: BossGrid
@@ -4883,3 +4884,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-4891137634336679092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3914910182303380143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1abdcb14e81d2f7469d8625db1a7085a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -23,6 +23,7 @@ public class Boss1Script : FSM
     ParticleSystem _smoke;
     public float _appearTime = 0f;
     public float _smokeLength = 0f;
+    public GameObject _player;
 
     int r, c;
     public float newAlpha;
@@ -71,14 +72,19 @@ public class Boss1Script : FSM
 
     protected void UpdateHideState()
     { 
-       _colSR.color = new Color(255f, 0, 0, .25f);
-
+        _colSR.color = new Color(255f, 0, 0, .25f);
 
         _timeBeforeExplosion -= Time.deltaTime;
         if (_timeBeforeExplosion < 0)
         {
             _timeBeforeExplosion = 5f;
             _grid[r, c].GetComponent<ParticleSystem>().Play();
+            //if ((_grid[r, c].transform.position.x >= _player.transform.position.x) &&
+            //(_grid[r, c].transform.position.y == _player.transform.position.y))
+            if (Vector2.Distance(_grid[r,c].transform.position, _player.transform.position) < .5f)
+            {
+                Player.health--;
+            }
             _colSR.color = new Color(255f, 0, 0, 0);
             curState = FSMState.Appear;
             _smoke.Clear();
