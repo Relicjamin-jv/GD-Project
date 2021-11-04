@@ -167,6 +167,6 @@ MonoBehaviour:
   curState: 0
   chaseSpeed: 1
   partrolSpeed: 0.2
-  health: 5
+  health: 7
   distanceToPlayerToChase: 5
-  timerAttack: 3
+  timerAttack: 1.5

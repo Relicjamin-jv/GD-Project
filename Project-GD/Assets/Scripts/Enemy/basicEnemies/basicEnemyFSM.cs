@@ -26,12 +26,14 @@ public class basicEnemyFSM : FSM
     bool canMove = true;
     SpriteRenderer _sp;
     public float timerAttack = 3f;
+    Animator _animator;
 
 
 
 
     protected override void Initialize()
     {
+        _animator = GetComponent<Animator>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         curState = FSMState.Partrol;
         _transform = this.transform;
@@ -50,6 +52,8 @@ public class basicEnemyFSM : FSM
 
     protected override void FSMUpdate()
     {
+        _animator.SetFloat("Speed", curSpeed);
+
         if (canMove)
         {
             switch (curState)
@@ -130,7 +134,6 @@ public class basicEnemyFSM : FSM
                 timerAttack = 5f;
                 Player.health--;
                 Player._sp.color = new Color(1, 0, 0);
-                slashScript.slashSR.enabled = true;
                 Invoke("resetPlayerColor", .5f);
             }
         }
@@ -167,7 +170,6 @@ public class basicEnemyFSM : FSM
     }
     void resetPlayerColor()
     {
-        slashScript.slashSR.enabled = false;
         Player._sp.color = new Color(1, 1, 1);
     }
 }
