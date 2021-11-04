@@ -205,6 +205,7 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("Scene3Level1");
         }
+        //trapdoor
         else if (tag.Equals("S1Level2Exit"))
         {
             SceneManager.LoadScene("Scene2Level2");
@@ -219,7 +220,7 @@ public class Player : MonoBehaviour
         }
         else if (tag.Equals("S1Level3Exit"))
         {
-            SceneManager.LoadScene("Scene2Level2");
+            SceneManager.LoadScene("Scene2Level3");
         }
         else if (tag.Equals("S2Level3Exit"))
         {

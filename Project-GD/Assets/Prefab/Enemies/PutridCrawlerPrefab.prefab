@@ -167,7 +167,7 @@ MonoBehaviour:
   curState: 0
   chaseSpeed: 1
   partrolSpeed: 0.2
-  health: 5
-  distanceToPlayerToChase: 5
-  timerAttack: 3
+  health: 7
+  distanceToPlayerToChase: 8
+  timerAttack: 1
   rangedWeapon: {fileID: 605238251991956022, guid: 2d0c5daf13ca7464f91d144af4676ea3, type: 3}
