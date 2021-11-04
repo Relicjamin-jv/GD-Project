@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     public static int health = 10;
     public static SpriteRenderer _sp;
 
+    public Text _lives;
 
 
     private void Start()
@@ -71,6 +73,14 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (health != 10)
+        {
+            _lives.text = "Health: " + health;
+        } else
+        {
+            _lives.text = "Health: " + health;
+        }
+        Debug.Log(health);
         //movement
         Vector2 m = new Vector2(move.x, move.y) * Time.deltaTime;
         m *= playerSpeed;
