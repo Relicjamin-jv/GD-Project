@@ -78,10 +78,13 @@ public class Player : MonoBehaviour
         if (health != 10)
         {
             _lives.text = "Health: " + health;
-        } else
-        {
-            _lives.text = "Health: " + health;
+        } 
+
+        if(health < 0){
+            Time.timeScale = 0f;
+            SceneManager.LoadScene("MainMenu");
         }
+
         Debug.Log(health);
         //movement
         Vector2 m = new Vector2(move.x, move.y) * Time.deltaTime;
@@ -116,6 +119,7 @@ public class Player : MonoBehaviour
     {
         controls.Gameplay.Disable();
     }
+
 
     bool canAttack()
     {

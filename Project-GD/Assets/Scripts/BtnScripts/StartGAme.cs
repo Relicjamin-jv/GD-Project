@@ -10,6 +10,10 @@ public class StartGAme : MonoBehaviour
         SceneManager.LoadScene("Scene1Level1");
     }
 
+    public void exit(){ 
+        Application.Quit();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
