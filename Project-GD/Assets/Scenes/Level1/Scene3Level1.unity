@@ -432,6 +432,10 @@ PrefabInstance:
       value: 0.0000001
       objectReference: {fileID: 0}
     - target: {fileID: 4612677495506719377, guid: 9793740e9c0a3774e8d681251b4dcd75, type: 3}
+      propertyPath: _dyingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d9aa82a4285c9bb4fb2cc52af2b8d264, type: 3}
+    - target: {fileID: 4612677495506719377, guid: 9793740e9c0a3774e8d681251b4dcd75, type: 3}
       propertyPath: _appearTime
       value: 1
       objectReference: {fileID: 0}

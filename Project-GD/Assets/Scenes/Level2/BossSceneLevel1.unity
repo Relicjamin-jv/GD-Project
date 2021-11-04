@@ -6206,65 +6206,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1426676039 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4577683195065999252, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
-  m_PrefabInstance: {fileID: 2063199786}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1426676040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426676039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75f4c5edae7f4cc4babdf3e6cd13d25e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  curState: 0
-  health: 20
-  timerAttack: 3
-  changeStateHealth: 20
-  traversePoints:
-  - {fileID: 4743073276560271576}
-  - {fileID: 1640969668}
-  - {fileID: 1694034457}
-  - {fileID: 1531800881}
-  defaultTravelPoint: {fileID: 1656446559}
-  attackSmashHorizontal: {fileID: 1783655227}
-  attackSmashVerticle: {fileID: 1703910410}
-  speed: 1
-  timerBeforeMove: 0
-  portal: {fileID: 1330444644}
-  partileDeath: {fileID: 1407339097}
---- !u!61 &1426676041
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426676039}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.054038152, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.9375}
-    newSize: {x: 1, y: 0.9375}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.89192367, y: 0.9375}
-  m_EdgeRadius: 0
 --- !u!4 &1459646062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2338642471694748348, guid: 44a00f5b2c9787e40aacc98164b1da47, type: 3}
@@ -7186,6 +7127,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1426676040, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
+      propertyPath: portal
+      value: 
+      objectReference: {fileID: 1330444644}
+    - target: {fileID: 1426676040, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
+      propertyPath: _dyingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d9aa82a4285c9bb4fb2cc52af2b8d264, type: 3}
+    - target: {fileID: 1426676040, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
+      propertyPath: partileDeath
+      value: 
+      objectReference: {fileID: 1407339097}
+    - target: {fileID: 1426676040, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
+      propertyPath: defaultTravelPoint
+      value: 
+      objectReference: {fileID: 1656446559}
+    - target: {fileID: 1426676040, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
+      propertyPath: attackSmashVerticle
+      value: 
+      objectReference: {fileID: 1703910410}
+    - target: {fileID: 1426676040, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
+      propertyPath: attackSmashHorizontal
+      value: 
+      objectReference: {fileID: 1783655227}
+    - target: {fileID: 1426676040, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
+      propertyPath: traversePoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 4743073276560271576}
+    - target: {fileID: 1426676040, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
+      propertyPath: traversePoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1640969668}
+    - target: {fileID: 1426676040, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
+      propertyPath: traversePoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1694034457}
+    - target: {fileID: 1426676040, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
+      propertyPath: traversePoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1531800881}
     - target: {fileID: 4577683195065999250, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
       propertyPath: m_RootOrder
       value: 4

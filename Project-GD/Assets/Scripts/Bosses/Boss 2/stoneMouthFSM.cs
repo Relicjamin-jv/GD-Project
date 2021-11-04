@@ -34,6 +34,7 @@ public class stoneMouthFSM : FSM
     public GameObject portal;
     public GameObject partileDeath;
     public AudioClip _dyingClip;
+    public AudioSource _as;
 
 
     protected override void Initialize()
@@ -46,7 +47,7 @@ public class stoneMouthFSM : FSM
         _rigidbody = GetComponent<Rigidbody2D>(); //get the ridgid body
         _sp = gameObject.GetComponent<SpriteRenderer>();
         maxHealth = health;
-
+        _as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         playerTransform = player.transform; //get the postion of the player to calculate whether it should change or not to the chasing state
 
         if (!playerTransform)
@@ -152,7 +153,8 @@ public class stoneMouthFSM : FSM
     protected void UpdateDeadState()
     {
         portal.SetActive(true);
-        //Destroy(gameObject, 2f);
+        _as.PlayOneShot(_dyingClip);
+        Destroy(gameObject, 2f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

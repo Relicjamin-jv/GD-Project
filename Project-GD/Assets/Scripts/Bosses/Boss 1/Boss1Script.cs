@@ -24,6 +24,7 @@ public class Boss1Script : FSM
     public float _appearTime = 0f;
     public float _smokeLength = 0f;
     public GameObject _player;
+    public AudioSource _as;
 
     int r, c;
     public float newAlpha;
@@ -34,6 +35,7 @@ public class Boss1Script : FSM
 
     protected override void Initialize()
     {
+        _as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         _renderer = GetComponent<Renderer>();
         _transform = transform;
         _sr = this.GetComponent<SpriteRenderer>();
@@ -122,8 +124,9 @@ public class Boss1Script : FSM
     {
         //set boss bool in trapdoor script true
         TrapdoorScript._bossDead = true;
+        _as.PlayOneShot(_dyingClip);
         //destroy game object
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
