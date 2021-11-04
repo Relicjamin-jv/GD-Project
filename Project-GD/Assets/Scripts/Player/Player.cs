@@ -196,6 +196,7 @@ public class Player : MonoBehaviour
             Invoke("resetPlayerColor", .5f);
         }
 
+        //Move from scene to scene
         if (tag.Equals("Level1Exit"))
         {
             SceneManager.LoadScene("Scene2Level1");
