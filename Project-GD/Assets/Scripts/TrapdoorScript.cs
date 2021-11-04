@@ -8,7 +8,7 @@ public class TrapdoorScript : MonoBehaviour
 
     Animator _animator;
     bool _open = false;
-    bool _bossDead = true;
+    public static bool _bossDead = false;
 
     // Start is called before the first frame update
     void Start()
