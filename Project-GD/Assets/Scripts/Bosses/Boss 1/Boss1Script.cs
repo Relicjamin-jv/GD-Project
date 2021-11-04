@@ -13,7 +13,7 @@ public class Boss1Script : FSM
     }
 
     public FSMState curState; //what state are we in now
-    public int health = 5; //the health of the enemy
+    public int health = 50; //the health of the enemy
     private Renderer _renderer;
     public GameObject _ColliderPrefab;
     GameObject[,] _grid = new GameObject[5, 4];
@@ -28,13 +28,15 @@ public class Boss1Script : FSM
     int r, c;
     public float newAlpha;
     SpriteRenderer _colSR;
+    SpriteRenderer _sr;
     GameObject smoke;
+    
 
     protected override void Initialize()
     {
         _renderer = GetComponent<Renderer>();
         _transform = transform;
-
+        _sr = this.GetComponent<SpriteRenderer>();
         float x = _transform.position.x;
         float y = _transform.position.y;
         smoke = Instantiate(_SmokePrefab, new Vector2(x, y), Quaternion.identity);
@@ -101,7 +103,7 @@ public class Boss1Script : FSM
         _appearTime -= Time.deltaTime;
         if (_appearTime < 0)
         {
-            _appearTime = 1f;
+            _appearTime = 5f;
             curState = FSMState.Hide;
             _smoke.Play();
             //disable sprite renderer
@@ -127,7 +129,14 @@ public class Boss1Script : FSM
     private void OnTriggerEnter2D(Collider2D other) {
         string tag = other.gameObject.tag;
         if(tag == "attack"){
-            health--;
+             health--;
+            _sr.color = new Color(1, 0, 0);
+            Invoke("resetColor", .5f);
         }
+    }
+
+    void resetColor()
+    {
+        _sr.color = new Color(1, 1, 1);
     }
 }
