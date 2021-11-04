@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
     {
         if (timer <= 0)
         { //so the player cant spam the attack
-            timer = .8f;
+            timer = .5f;
             return true;
         }
         return false;
