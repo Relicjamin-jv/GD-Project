@@ -26,6 +26,7 @@ public class rangeBasicEnemyFSM : FSM
     SpriteRenderer _sp;
     public float timerAttack = 3f;
     public GameObject rangedWeapon;
+    public AudioClip _dyingClip;
 
     protected override void Initialize()
     {

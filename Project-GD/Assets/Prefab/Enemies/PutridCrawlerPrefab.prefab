@@ -171,3 +171,4 @@ MonoBehaviour:
   distanceToPlayerToChase: 8
   timerAttack: 1
   rangedWeapon: {fileID: 605238251991956022, guid: 2d0c5daf13ca7464f91d144af4676ea3, type: 3}
+  _dyingClip: {fileID: 8300000, guid: d9aa82a4285c9bb4fb2cc52af2b8d264, type: 3}

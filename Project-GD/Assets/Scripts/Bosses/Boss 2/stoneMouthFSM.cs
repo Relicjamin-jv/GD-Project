@@ -33,7 +33,7 @@ public class stoneMouthFSM : FSM
     int maxHealth;
     public GameObject portal;
     public GameObject partileDeath;
-
+    public AudioClip _dyingClip;
 
 
     protected override void Initialize()

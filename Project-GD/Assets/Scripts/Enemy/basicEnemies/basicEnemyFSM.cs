@@ -28,6 +28,7 @@ public class basicEnemyFSM : FSM
     public float timerAttack = 3f;
     Animator _animator;
 
+    public AudioClip _dyingClip;
 
 
 

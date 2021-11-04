@@ -30,7 +30,7 @@ public class Boss1Script : FSM
     SpriteRenderer _colSR;
     SpriteRenderer _sr;
     GameObject smoke;
-    
+    public AudioClip _dyingClip;
 
     protected override void Initialize()
     {
