@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     public static int numberOfRangedAttack = 3;
     public static int health = 10;
     public static SpriteRenderer _sp;
-    
+
 
 
     private void Start()
@@ -48,19 +48,24 @@ public class Player : MonoBehaviour
         controls.Gameplay.Attack.canceled += context => attack = false;
 
         //ranged
-        controls.Gameplay.RangedAttack.started += context => {
-            if(numberOfRangedAttack > 0){
-                rangedAttack = true; 
+        controls.Gameplay.RangedAttack.started += context =>
+        {
+            if (numberOfRangedAttack > 0)
+            {
+                rangedAttack = true;
                 canMove = false;
             }
         };
-        controls.Gameplay.RangedAttack.canceled += context => { 
-            if(numberOfRangedAttack > 0){
-                rangeFire(); 
+        controls.Gameplay.RangedAttack.canceled += context =>
+        {
+            if (numberOfRangedAttack > 0)
+            {
+                rangeFire();
             }
-            rangePower = 0f; 
-            rangedAttack = false; 
-            canMove = true;};
+            rangePower = 0f;
+            rangedAttack = false;
+            canMove = true;
+        };
 
     }
 
@@ -74,7 +79,8 @@ public class Player : MonoBehaviour
         _animator.SetFloat("y", m.y);
         _animator.SetFloat("Speed", m.sqrMagnitude * 1000);
 
-        if(canMove){
+        if (canMove)
+        {
             transform.Translate(m, Space.World);
         }
 
@@ -169,44 +175,61 @@ public class Player : MonoBehaviour
         rangePower = rangePower + Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         string tag = other.gameObject.tag;
 
-        if(tag == "eAttack"){
+        if (tag == "eAttack")
+        {
             health--;
-            _sp.color = new Color(1,0,0);
-            slashScript.slashSR.enabled = true;
+            _sp.color = new Color(1, 0, 0);
+            //slashScript.slashSR.enabled = true;
             Invoke("resetPlayerColor", .5f);
             Destroy(other.gameObject, .5f);
+        }
+
+        if (tag == "SmashAttack")
+        {
+            health--;
+            _sp.color = new Color(1, 0, 0);
+            //slashScript.slashSR.enabled = true;
+            Invoke("resetPlayerColor", .5f);
         }
 
         if (tag.Equals("Level1Exit"))
         {
             SceneManager.LoadScene("Scene2Level1");
-        } else if (tag.Equals("S2Level1Exit"))
+        }
+        else if (tag.Equals("S2Level1Exit"))
         {
             SceneManager.LoadScene("Scene3Level1");
-        } else if (tag.Equals("S1Level2Exit"))
+        }
+        else if (tag.Equals("S1Level2Exit"))
         {
             SceneManager.LoadScene("Scene2Level2");
-        } else if (tag.Equals("S2Level2Exit"))
+        }
+        else if (tag.Equals("S2Level2Exit"))
         {
             SceneManager.LoadScene("BossSceneLevel1");
-        } else if (tag.Equals("S3Level2Exit"))
+        }
+        else if (tag.Equals("S3Level2Exit"))
         {
             SceneManager.LoadScene("Scene1Level3");
-        } else if (tag.Equals("S1Level3Exit"))
+        }
+        else if (tag.Equals("S1Level3Exit"))
         {
-            SceneManager.LoadScene("Scene2Level3");
-        } else if (tag.Equals("S2Level3Exit"))
+            SceneManager.LoadScene("Scene2Level2");
+        }
+        else if (tag.Equals("S2Level3Exit"))
         {
             SceneManager.LoadScene("BossSceneLevel3");
         }
+
     }
 
     void resetPlayerColor()
     {
-        slashScript.slashSR.enabled = false;
+        //slashScript.slashSR.enabled = false;
         Player._sp.color = new Color(1, 1, 1);
     }
 

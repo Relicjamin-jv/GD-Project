@@ -13,6 +13,8 @@ TagManager:
   - S1Level3Exit
   - S2Level3Exit
   - S3Level1Exit
+  - SmashAttack
+  - S3Level2Exit
   layers:
   - Default
   - TransparentFX
