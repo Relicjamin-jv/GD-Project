@@ -27,6 +27,7 @@ public class Boss1Script : FSM
     int r, c;
     public float newAlpha;
     SpriteRenderer _colSR;
+    GameObject smoke;
 
     protected override void Initialize()
     {
@@ -35,7 +36,7 @@ public class Boss1Script : FSM
 
         float x = _transform.position.x;
         float y = _transform.position.y;
-        GameObject smoke = Instantiate(_SmokePrefab, new Vector2(x, y), Quaternion.identity);
+        smoke = Instantiate(_SmokePrefab, new Vector2(x, y), Quaternion.identity);
         _smoke = smoke.GetComponent<ParticleSystem>();
 
         x = -1.23f;
@@ -82,6 +83,9 @@ public class Boss1Script : FSM
             curState = FSMState.Appear;
             _smoke.Clear();
             //appear
+            Vector2 randomPos = new Vector2(Random.Range(-1.11f,1.15f), Random.Range(-1.3f, .7f));
+            this.transform.position = randomPos;
+            smoke.transform.position = randomPos;
             _renderer.enabled = true;
         }
     }
@@ -112,5 +116,12 @@ public class Boss1Script : FSM
         TrapdoorScript._bossDead = true;
         //destroy game object
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        string tag = other.gameObject.tag;
+        if(tag == "attack"){
+            health--;
+        }
     }
 }
