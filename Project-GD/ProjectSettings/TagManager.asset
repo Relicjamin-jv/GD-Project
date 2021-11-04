@@ -13,12 +13,10 @@ TagManager:
   - S1Level3Exit
   - S2Level3Exit
   - S3Level1Exit
-<<<<<<< Updated upstream
   - SmashAttack
   - S3Level2Exit
-=======
   - BossGrid
->>>>>>> Stashed changes
+  - SFX
   layers:
   - Default
   - TransparentFX

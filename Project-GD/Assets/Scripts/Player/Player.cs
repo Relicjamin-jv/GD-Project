@@ -46,7 +46,9 @@ public class Player : MonoBehaviour
         controls.Gameplay.WASD.canceled += context => move = Vector2.zero;
 
         //melee
-        controls.Gameplay.Attack.started += context => attack = canAttack();
+        controls.Gameplay.Attack.performed += context => {
+            attack = canAttack();
+        };
         controls.Gameplay.Attack.canceled += context => attack = false;
 
         //ranged
@@ -119,7 +121,7 @@ public class Player : MonoBehaviour
     {
         if (timer <= 0)
         { //so the player cant spam the attack
-            timer = .1f;
+            timer = .8f;
             return true;
         }
         return false;
@@ -166,7 +168,7 @@ public class Player : MonoBehaviour
             { //not moving 
                 GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, 270f));
             }
-
+            attack = false;
         }
         timer -= Time.deltaTime;
     }

@@ -26,9 +26,12 @@ public class rangeBasicEnemyFSM : FSM
     SpriteRenderer _sp;
     public float timerAttack = 3f;
     public GameObject rangedWeapon;
+    public AudioClip _dyingClip;
+    public AudioSource _as;
 
     protected override void Initialize()
     {
+        _as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         curState = FSMState.Partrol;
         _transform = this.transform;
@@ -128,7 +131,8 @@ public class rangeBasicEnemyFSM : FSM
 
     protected void UpdateDeadState()
     {
-        Destroy(gameObject);
+        _as.PlayOneShot(_dyingClip);
+        Destroy(gameObject, 1f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -28,11 +28,14 @@ public class basicEnemyFSM : FSM
     public float timerAttack = 3f;
     Animator _animator;
 
+    public AudioClip _dyingClip;
+    public GameObject _as;
 
 
 
     protected override void Initialize()
     {
+        _as = GameObject.FindGameObjectWithTag("SFX");
         _animator = GetComponent<Animator>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         curState = FSMState.Partrol;
@@ -142,7 +145,8 @@ public class basicEnemyFSM : FSM
 
     protected void UpdateDeadState()
     {
-        Destroy(gameObject);
+        _as.GetComponent<AudioSource>().PlayOneShot(_dyingClip);
+        Destroy(gameObject, 1f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
