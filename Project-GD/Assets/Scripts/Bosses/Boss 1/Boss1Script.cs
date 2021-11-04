@@ -43,7 +43,7 @@ public class Boss1Script : FSM
         float y = _transform.position.y;
         smoke = Instantiate(_SmokePrefab, new Vector2(x, y), Quaternion.identity);
         _smoke = smoke.GetComponent<ParticleSystem>();
-
+        curState = FSMState.Appear;
         x = -1.23f;
         y=-2.3f;
 
