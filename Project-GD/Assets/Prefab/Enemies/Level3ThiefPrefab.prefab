@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1853997749899893366, guid: 2f45920d4ce210f45a357d4edcea64b0, type: 3}
+  m_Sprite: {fileID: 2404678172156096461, guid: 0fffa6f1247e166488bfb672c90942e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -143,7 +143,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 0.8125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -171,3 +171,4 @@ MonoBehaviour:
   distanceToPlayerToChase: 6
   timerAttack: 1
   _dyingClip: {fileID: 8300000, guid: d9aa82a4285c9bb4fb2cc52af2b8d264, type: 3}
+  _as: {fileID: 0}
