@@ -167,7 +167,7 @@ MonoBehaviour:
   curState: 1
   chaseSpeed: 1.5
   partrolSpeed: 0.5
-  health: 5
+  health: 1
   distanceToPlayerToChase: 2
   timerAttack: 2
   _dyingClip: {fileID: 8300000, guid: d9aa82a4285c9bb4fb2cc52af2b8d264, type: 3}

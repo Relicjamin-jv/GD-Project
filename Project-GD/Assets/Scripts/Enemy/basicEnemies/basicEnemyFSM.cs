@@ -19,7 +19,7 @@ public class basicEnemyFSM : FSM
     private float curSpeed = 10f; // the speed of the enemy player
     public float chaseSpeed = 10f;
     public float partrolSpeed = 5f;
-    public int health = 5; //the health of the enemy
+    public int health = 1; //the health of the enemy
     private Rigidbody2D _rigidbody;
     private Vector2 nextPos;
     public float distanceToPlayerToChase = 5f;
@@ -30,6 +30,7 @@ public class basicEnemyFSM : FSM
 
     public AudioClip _dyingClip;
     public GameObject _as;
+    bool play = true;
 
 
 
@@ -145,7 +146,11 @@ public class basicEnemyFSM : FSM
 
     protected void UpdateDeadState()
     {
-        _as.GetComponent<AudioSource>().PlayOneShot(_dyingClip);
+        if(play){
+            _as.GetComponent<AudioSource>().PlayOneShot(_dyingClip);
+            play = false;
+            Debug.Log("played");
+        }
         Destroy(gameObject, 1f);
     }
 
