@@ -94,8 +94,8 @@ public class Player : MonoBehaviour
         if (health < 0)
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene("Scene1Level1");
             health = 10;
+            SceneManager.LoadScene("DeathScene");
         }
 
         Debug.Log(health);
