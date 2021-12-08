@@ -5,8 +5,17 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+public enum idleLook
+{
+    LEFT,
+    UP,
+    DOWN,
+    RIGHT,
+}
 public class Player : MonoBehaviour
 {
+    private idleLook idleDirection = idleLook.DOWN;
     PlayerControls controls;
     public Animator _animator;
     public Vector3 offset;
@@ -25,6 +34,7 @@ public class Player : MonoBehaviour
     public static int numberOfRangedAttack = 3;
     public static int health = 10;
     public static SpriteRenderer _sp;
+
 
     public Text _lives;
 
@@ -46,7 +56,8 @@ public class Player : MonoBehaviour
         controls.Gameplay.WASD.canceled += context => move = Vector2.zero;
 
         //melee
-        controls.Gameplay.Attack.performed += context => {
+        controls.Gameplay.Attack.performed += context =>
+        {
             attack = canAttack();
         };
         controls.Gameplay.Attack.canceled += context => attack = false;
@@ -78,9 +89,10 @@ public class Player : MonoBehaviour
         if (health != 10)
         {
             _lives.text = "Health: " + health;
-        } 
+        }
 
-        if(health < 0){
+        if (health < 0)
+        {
             Time.timeScale = 1f;
             health = 10;
             SceneManager.LoadScene("DeathScene");
@@ -94,6 +106,45 @@ public class Player : MonoBehaviour
         _animator.SetFloat("x", m.x);
         _animator.SetFloat("y", m.y);
         _animator.SetFloat("Speed", m.sqrMagnitude * 1000);
+
+
+        //for idle looking a cetain direction
+        if (m.x > 0)
+        {
+            _animator.SetBool("Right", true);
+            _animator.SetBool("Left", false);
+            _animator.SetBool("Up", false);
+            _animator.SetBool("Down", false);
+            idleDirection = idleLook.RIGHT;
+        }
+
+        if (m.x < 0)
+        {
+            _animator.SetBool("Right", false);
+            _animator.SetBool("Left", true);
+            _animator.SetBool("Up", false);
+            _animator.SetBool("Down", false);
+            idleDirection = idleLook.LEFT;
+        }
+
+        if (m.y > 0)
+        {
+            _animator.SetBool("Right", false);
+            _animator.SetBool("Left", false);
+            _animator.SetBool("Up", true);
+            _animator.SetBool("Down", false);
+            idleDirection = idleLook.UP;
+        }
+
+        if (m.y < 0)
+        {
+            _animator.SetBool("Right", false);
+            _animator.SetBool("Left", false);
+            _animator.SetBool("Up", false);
+            _animator.SetBool("Down", true);
+            idleDirection = idleLook.DOWN;
+        }
+
 
         if (canMove)
         {
@@ -170,8 +221,24 @@ public class Player : MonoBehaviour
                 GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x - offset.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, -135f));
             }
             if (move.x == 0 && move.y == 0)
-            { //not moving 
-                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, 270f));
+            { //not moving
+                //each idle state
+                if (idleDirection == idleLook.DOWN)
+                {
+                    GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, 270f));
+                }
+                if (idleDirection == idleLook.UP)
+                {
+                    GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y + offset.y, 0f), Quaternion.Euler(0f, 0f, 90f));
+                }
+                if (idleDirection == idleLook.RIGHT)
+                {
+                    GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x + offset.x, transform.position.y, 0f), Quaternion.Euler(0f, 0f, 0f));
+                }
+                if (idleDirection == idleLook.LEFT)
+                {
+                    GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x - offset.x, transform.position.y, 0f), Quaternion.Euler(0f, 0f, 180f));
+                }
             }
             attack = false;
         }
@@ -184,7 +251,29 @@ public class Player : MonoBehaviour
         float xComp = Mathf.Cos(angle);
         float yComp = Mathf.Sin(angle);
         GameObject attackGameObj = Instantiate(arrowObj, new Vector3(this.transform.position.x, transform.position.y, 0f), Quaternion.identity);
-        attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(yComp, xComp) * Mathf.Min(rangePower, 3f) * 100); //returns a smaller value if rangedPower goes over 3
+        if (Mathf.Abs(move.x) > 0 && Mathf.Abs(move.y) > 0)
+        {
+            attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(yComp, xComp).normalized * Mathf.Min(rangePower, 3f) * 100); //returns a smaller value if rangedPower goes over 3
+        }
+        else
+        {
+            if (idleDirection == idleLook.DOWN)
+            {
+                attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -1).normalized * Mathf.Min(rangePower, 3f) * 100); //returns a smaller value if rangedPower goes over 3
+            }
+            if (idleDirection == idleLook.UP)
+            {
+                attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1).normalized * Mathf.Min(rangePower, 3f) * 100); //returns a smaller value if rangedPower goes over 3
+            }
+            if (idleDirection == idleLook.RIGHT)
+            {
+                attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 0).normalized * Mathf.Min(rangePower, 3f) * 100); //returns a smaller value if rangedPower goes over 3
+            }
+            if (idleDirection == idleLook.LEFT)
+            {
+                attackGameObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, 0).normalized * Mathf.Min(rangePower, 3f) * 100); //returns a smaller value if rangedPower goes over 3
+            }
+        }
     }
 
     void powerCharge()
