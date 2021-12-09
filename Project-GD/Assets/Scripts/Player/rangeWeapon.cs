@@ -11,12 +11,16 @@ public class rangeWeapon : MonoBehaviour
     float previousY = 0f;
     float lifeTime = 0f;
     public bool hitWall = false;
+    float _startTime;
 
     Rigidbody2D _rigidbody;
     private void Start() {
         _transform = this.transform;
-        Player.numberOfRangedAttack--;
+        Player.mana -= 20;
+        Debug.Log(Player.mana);
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        _startTime = Time.time;
     }
 
     // Update is called once per frame
@@ -26,12 +30,24 @@ public class rangeWeapon : MonoBehaviour
         updateVelocity();
         previousX = _transform.position.x; 
         previousY = _transform.position.y;
-        if(velocity < .2f){
+
+        if (velocity < .2f){
             velocity = 0f;
+        }
+
+        float curTime = Time.time;
+        if ((curTime - _startTime) >= 2)
+        {
+            Destroy(gameObject);
         }
 
         Vector3 roatation = new Vector3(0f, 0f, rotationSpeed) * Time.deltaTime * Mathf.Sqrt(velocity);
         _transform.Rotate(roatation, Space.World);
+    }
+
+    private void LateUpdate()
+    {
+        
     }
 
     //Gets the change in the x & y positions and returns the value, slows down the rotation of the shuriken
@@ -39,19 +55,20 @@ public class rangeWeapon : MonoBehaviour
         if(!hitWall){
             velocity = (Mathf.Abs(_transform.position.x - previousX) + Mathf.Abs(_transform.position.y - previousY)) / Time.deltaTime;
         }else{
-            velocity = 0f;
-            _rigidbody.velocity = Vector3.zero;
+            Destroy(gameObject);
+/*            velocity = 0f;
+            _rigidbody.velocity = Vector3.zero;*/
         }
        
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    /*private void OnTriggerEnter2D(Collider2D other) {
         string tag = other.gameObject.tag;
         Debug.Log(tag);
         if(tag == "Player" && lifeTime > 1f){
-            Player.numberOfRangedAttack++; 
+            Player.mana -= 20; 
             Destroy(this.gameObject);
         }
-    }
+    }*/
 }

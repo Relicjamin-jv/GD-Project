@@ -17,6 +17,7 @@ TagManager:
   - S3Level2Exit
   - BossGrid
   - SFX
+  - WallCollider
   layers:
   - Default
   - TransparentFX

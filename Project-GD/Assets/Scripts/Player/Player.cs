@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     public GameObject arrowObj;
     public float arrowSpeed = 10f;
     bool canMove = true;
-    public static int numberOfRangedAttack = 3;
+    public static float mana = 100f;
     public static int health = 10;
     public static SpriteRenderer _sp;
 
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         //ranged
         controls.Gameplay.RangedAttack.started += context =>
         {
-            if (numberOfRangedAttack > 0)
+            if (mana >= 20)
             {
                 rangedAttack = true;
                 canMove = false;
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
         };
         controls.Gameplay.RangedAttack.canceled += context =>
         {
-            if (numberOfRangedAttack > 0)
+            if (mana >= 20)
             {
                 rangeFire();
             }
@@ -98,7 +98,6 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene("DeathScene");
         }
 
-        Debug.Log(health);
         //movement
         Vector2 m = new Vector2(move.x, move.y) * Time.deltaTime;
         m *= playerSpeed;
@@ -155,7 +154,7 @@ public class Player : MonoBehaviour
         //melee attack logic
         meleeAttacking();
 
-        if (rangedAttack && numberOfRangedAttack > 0)
+        if (rangedAttack && mana >= 20)
         { //how much power to put behind it
             powerCharge();
         } //the button has been released fire the arrow based on how much power is behind it
