@@ -18,6 +18,8 @@ TagManager:
   - BossGrid
   - SFX
   - WallCollider
+  - Lvl2.5Scene2Exit
+  - Lvl2.5Scene1Exit
   layers:
   - Default
   - TransparentFX

@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     public float arrowSpeed = 10f;
     bool canMove = true;
     public static float mana = 100f;
-    public static int health = 10;
+    public static int health = 100;
     public static SpriteRenderer _sp;
 
 
@@ -321,7 +321,15 @@ public class Player : MonoBehaviour
         }
         else if (tag.Equals("S3Level2Exit"))
         {
-            SceneManager.LoadScene("Scene1Level3");
+            SceneManager.LoadScene("Lvl2.5Scene1");
+        }
+        else if (tag.Equals("Lvl2.5Scene1Exit"))
+        {
+            SceneManager.LoadScene("Lvl2.5Scene2");
+        }
+        else if (tag.Equals("Lvl2.5Scene2Exit"))
+        {
+            SceneManager.LoadScene("Lvl2.5Scene3");
         }
         else if (tag.Equals("S1Level3Exit"))
         {
