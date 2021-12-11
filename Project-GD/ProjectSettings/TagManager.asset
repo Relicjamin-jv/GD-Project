@@ -21,6 +21,7 @@ TagManager:
   - Lvl2.5Scene2Exit
   - Lvl2.5Scene1Exit
   - Lvl2.5Scene3Exit
+  - StonemouthExitCover
   layers:
   - Default
   - TransparentFX

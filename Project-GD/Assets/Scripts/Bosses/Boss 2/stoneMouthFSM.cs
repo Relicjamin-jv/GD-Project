@@ -32,6 +32,7 @@ public class stoneMouthFSM : FSM
     float timerBeforeMoveSetter = 5f;
     int maxHealth;
     public GameObject portal;
+    public GameObject exitCover;
     public GameObject partileDeath;
     public AudioClip _dyingClip;
     public AudioSource _as;
@@ -153,6 +154,7 @@ public class stoneMouthFSM : FSM
     protected void UpdateDeadState()
     {
         portal.SetActive(true);
+        exitCover.SetActive(false);
         _as.PlayOneShot(_dyingClip);
         Destroy(gameObject, 2f);
     }
