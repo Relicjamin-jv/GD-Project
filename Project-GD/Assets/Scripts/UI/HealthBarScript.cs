@@ -7,20 +7,19 @@ public class HealthBarScript : MonoBehaviour
 {
     private Image _healthBar;
     public int _curHealth;
-    public int _maxHealth = 10;
-    Player _player;
+    public int _maxHealth;
 
     void Start()
     {
         _healthBar = GetComponent<Image>();
-        _player = FindObjectOfType<Player>();
-
+        _maxHealth = Player.maxHealth;
+        _curHealth = Player.health;
     }
 
     void Update()
     {
         _curHealth = Player.health;
-        _healthBar.fillAmount = _curHealth / _maxHealth;
+        _healthBar.fillAmount = (float)_curHealth / _maxHealth;
     }
 
 }

@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: -4221921448282238624
     second: PlayerSideSprite_3
+  - first:
+      213: 314087697194170300
+    second: PlayerLeftSprite_0
+  - first:
+      213: 3837494294827775127
+    second: PlayerLeftSprite_1
+  - first:
+      213: -5918040391664017544
+    second: PlayerLeftSprite_2
+  - first:
+      213: -5730838388423898699
+    second: PlayerLeftSprite_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +70,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerSideSprite_0
+      name: PlayerLeftSprite_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 0
-        width: 10
-        height: 13
+        x: 9
+        y: 3
+        width: 30
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,20 +129,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4da60b9fa49995450800000000000000
-      internalID: 6078057719408913108
+      spriteID: cb73493b81ddb5400800000000000000
+      internalID: 314087697194170300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSideSprite_1
+      name: PlayerLeftSprite_1
       rect:
         serializedVersion: 2
-        x: 19
-        y: 0
-        width: 10
-        height: 14
+        x: 57
+        y: 3
+        width: 30
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c115885688dbf9a0800000000000000
-      internalID: -6198122390623022655
+      spriteID: 7943cceaab4814530800000000000000
+      internalID: 3837494294827775127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSideSprite_2
+      name: PlayerLeftSprite_2
       rect:
         serializedVersion: 2
-        x: 35
-        y: 0
-        width: 10
-        height: 13
+        x: 105
+        y: 3
+        width: 30
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0585a8967d4f4270800000000000000
-      internalID: 8236887415246390539
+      spriteID: 87fd3707e95eedda0800000000000000
+      internalID: -5918040391664017544
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSideSprite_3
+      name: PlayerLeftSprite_3
       rect:
         serializedVersion: 2
-        x: 51
-        y: 0
-        width: 10
-        height: 14
+        x: 153
+        y: 3
+        width: 30
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 061d88dbfc8b865c0800000000000000
-      internalID: -4221921448282238624
+      spriteID: 5b942d859d8f770b0800000000000000
+      internalID: -5730838388423898699
       vertices: []
       indices: 
       edges: []

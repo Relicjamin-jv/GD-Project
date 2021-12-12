@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     bool canMove = true;
     public static float mana = 100f;
     public static int health = 100;
+    public static float maxMana = 100f;
+    public static int maxHealth = 100;
     public static SpriteRenderer _sp;
 
 

@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: -5538327674832320919
     second: full_41_3
+  - first:
+      213: -1381981462880169525
+    second: PlayerBackSprite_0
+  - first:
+      213: -4781052691317811556
+    second: PlayerBackSprite_1
+  - first:
+      213: 2790636142820953139
+    second: PlayerBackSprite_2
+  - first:
+      213: 7076950830609384177
+    second: PlayerBackSprite_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +70,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: full_41_0
+      name: PlayerBackSprite_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 13
+        x: 1
+        y: 3
+        width: 48
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,20 +129,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb9ddae47409d35a0800000000000000
-      internalID: -6539912447934998081
+      spriteID: bc15ada7e2732dce0800000000000000
+      internalID: -1381981462880169525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: full_41_1
+      name: PlayerBackSprite_1
       rect:
         serializedVersion: 2
-        x: 17
-        y: 0
-        width: 14
-        height: 14
+        x: 52
+        y: 3
+        width: 42
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75817179163078710800000000000000
-      internalID: 1695327502409865303
+      spriteID: c96939988e946adb0800000000000000
+      internalID: -4781052691317811556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: full_41_2
+      name: PlayerBackSprite_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 13
+        x: 97
+        y: 3
+        width: 48
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa90ac20d7ff6ee10800000000000000
-      internalID: 2226747978164079018
+      spriteID: 33c853659c45ab620800000000000000
+      internalID: 2790636142820953139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: full_41_3
+      name: PlayerBackSprite_3
       rect:
         serializedVersion: 2
-        x: 49
-        y: 0
-        width: 14
-        height: 14
+        x: 148
+        y: 3
+        width: 42
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96687e3b258e323b0800000000000000
-      internalID: -5538327674832320919
+      spriteID: 1f2c06ff841663260800000000000000
+      internalID: 7076950830609384177
       vertices: []
       indices: 
       edges: []

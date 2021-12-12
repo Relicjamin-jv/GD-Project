@@ -7,15 +7,14 @@ public class ManaBarScript : MonoBehaviour
 {
     private Image _manaBar;
     public float _curMana;
-    public float _maxMana = 100f;
-    Player _player;
+    public float _maxMana;
 
     public Text _manaText;
 
     void Start()
     {
         _manaBar = GetComponent<Image>();
-        _player = FindObjectOfType<Player>();
+        _maxMana = Player.maxMana;
 
     }
 

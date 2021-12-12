@@ -8,6 +8,18 @@ TextureImporter:
   - first:
       213: 5171783511177653072
     second: monster_114_1
+  - first:
+      213: -3385640675917787593
+    second: ayokarOnyx_0
+  - first:
+      213: -6720647250840580489
+    second: ayokarOnyx_1
+  - first:
+      213: -2681189753657246253
+    second: ayokarOnyx_2
+  - first:
+      213: -8112118049948865976
+    second: ayokarOnyx_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -52,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: monster_114_0
+      name: ayokarOnyx_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 16
-        height: 14
+        y: 51
+        width: 48
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdca6d9c46e1f3d20800000000000000
-      internalID: 3260358073471380699
+      spriteID: 73e8ece3eb9c301d0800000000000000
+      internalID: -3385640675917787593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: monster_114_1
+      name: ayokarOnyx_1
       rect:
         serializedVersion: 2
-        x: 17
-        y: 0
-        width: 15
-        height: 15
+        x: 51
+        y: 51
+        width: 45
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +144,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05b67feb3bdd5c740800000000000000
-      internalID: 5171783511177653072
+      spriteID: 77e01f0dee67bb2a0800000000000000
+      internalID: -6720647250840580489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ayokarOnyx_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ddb7d5ef108acad0800000000000000
+      internalID: -2681189753657246253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ayokarOnyx_3
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 0
+        width: 47
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a63c80d97fb6f80800000000000000
+      internalID: -8112118049948865976
       vertices: []
       indices: 
       edges: []
