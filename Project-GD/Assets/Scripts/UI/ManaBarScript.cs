@@ -10,6 +10,8 @@ public class ManaBarScript : MonoBehaviour
     public float _maxMana = 100f;
     Player _player;
 
+    public Text _manaText;
+
     void Start()
     {
         _manaBar = GetComponent<Image>();
@@ -21,6 +23,7 @@ public class ManaBarScript : MonoBehaviour
     {
         _curMana = Player.mana;
         _manaBar.fillAmount = _curMana / _maxMana;
+        _manaText.text = "Mana: " + Player.mana;
     }
 
 }
