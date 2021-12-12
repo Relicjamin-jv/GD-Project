@@ -332,6 +332,10 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("Lvl2.5Scene3");
         }
+        else if (tag.Equals("Lvl2.5Scene3Exit"))
+        {
+            SceneManager.LoadScene("Scene1Level3");
+        }
         else if (tag.Equals("S1Level3Exit"))
         {
             SceneManager.LoadScene("Scene2Level3");
