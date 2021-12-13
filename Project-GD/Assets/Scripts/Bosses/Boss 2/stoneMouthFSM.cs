@@ -37,6 +37,8 @@ public class stoneMouthFSM : FSM
     public AudioClip _dyingClip;
     public AudioSource _as;
 
+    bool dead = false;
+
 
     protected override void Initialize()
     {
@@ -153,10 +155,13 @@ public class stoneMouthFSM : FSM
 
     protected void UpdateDeadState()
     {
-        portal.SetActive(true);
-        exitCover.SetActive(false);
-        _as.PlayOneShot(_dyingClip);
-        Destroy(gameObject, 2f);
+        if(dead == true){
+            portal.SetActive(true);
+            exitCover.SetActive(false);
+            _as.PlayOneShot(_dyingClip);
+            Destroy(gameObject, 2f);
+            dead = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
