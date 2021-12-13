@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8328786083637347322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.36, y: -3.85, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.48725, z: 1}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -152,6 +152,7 @@ MonoBehaviour:
   timerAttack: 3
   rangedWeapon: {fileID: 2112849309712811664, guid: 4e2753b4e873a5a4eb1757f723d9a38e, type: 3}
   _dyingClip: {fileID: 8300000, guid: d9aa82a4285c9bb4fb2cc52af2b8d264, type: 3}
+  _as: {fileID: 0}
 --- !u!50 &-8937676676510548693
 Rigidbody2D:
   serializedVersion: 4

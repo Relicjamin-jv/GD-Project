@@ -58,7 +58,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,10 +106,10 @@ TextureImporter:
       name: lvl2thieves_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 16
-        height: 13
+        x: 0
+        y: 3
+        width: 48
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,10 +127,10 @@ TextureImporter:
       name: lvl2thieves_1
       rect:
         serializedVersion: 2
-        x: 20
-        y: 1
-        width: 15
-        height: 14
+        x: 54
+        y: 0
+        width: 45
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,10 +148,10 @@ TextureImporter:
       name: lvl2thieves_2
       rect:
         serializedVersion: 2
-        x: 40
-        y: 2
-        width: 16
-        height: 13
+        x: 114
+        y: 3
+        width: 48
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: lvl2thieves_3
       rect:
         serializedVersion: 2
-        x: 62
-        y: 1
-        width: 15
-        height: 14
+        x: 180
+        y: 0
+        width: 45
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
