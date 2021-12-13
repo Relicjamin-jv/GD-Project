@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
             _lives.text = "Health: " + health;
         }
 
-        if (health < 0)
+        if (health <= 0)
         {
             Time.timeScale = 1f;
             health = 10;
@@ -320,7 +320,6 @@ public class Player : MonoBehaviour
             _manaParticles.Play();
         }
 
-        Debug.Log(tag);
         //Move from scene to scene
         if (tag.Equals("Level1Exit"))
         {
