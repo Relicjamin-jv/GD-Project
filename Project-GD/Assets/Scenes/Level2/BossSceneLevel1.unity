@@ -1956,7 +1956,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0, a: 1}
+      maxColor: {r: 1, g: 0.29065645, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -7686,6 +7686,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5399164037681007933, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399164037681007933, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
       propertyPath: ShapeModule.m_Scale.x
       value: 8
       objectReference: {fileID: 0}
@@ -7696,6 +7700,10 @@ PrefabInstance:
     - target: {fileID: 5399164037681007934, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
       propertyPath: m_Size.x
       value: 8.007195
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399164037681007934, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5399164037681007934, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
       propertyPath: m_Offset.x
@@ -7838,7 +7846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4577683195065999250, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.02
+      value: -2.29
       objectReference: {fileID: 0}
     - target: {fileID: 4577683195065999250, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8002,9 +8010,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5399164037681007933, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5399164037681007934, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
       propertyPath: m_Size.y
       value: 5.0081735
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399164037681007934, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5399164037681007934, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
       propertyPath: m_Offset.y
