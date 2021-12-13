@@ -60,7 +60,7 @@ public class Boss1Script : FSM
 
     protected override void Initialize()
     {
-        //_as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
+        _as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         _renderer = GetComponent<Renderer>();
         _transform = transform;
         _sr = this.GetComponent<SpriteRenderer>();
