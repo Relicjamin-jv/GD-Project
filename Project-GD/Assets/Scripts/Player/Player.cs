@@ -116,7 +116,7 @@ public class Player : MonoBehaviour
 
 
         //for idle looking a cetain direction
-        if (m.x > 0)
+        if (m.x > 0 && Mathf.Abs(m.y) < Mathf.Abs(m.x))
         {
             _animator.SetBool("Right", true);
             _animator.SetBool("Left", false);
@@ -125,7 +125,7 @@ public class Player : MonoBehaviour
             idleDirection = idleLook.RIGHT;
         }
 
-        if (m.x < 0)
+        if (m.x < 0 && Mathf.Abs(m.y) < Mathf.Abs(m.x))
         {
             _animator.SetBool("Right", false);
             _animator.SetBool("Left", true);
@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
             idleDirection = idleLook.LEFT;
         }
 
-        if (m.y > 0)
+        if (m.y > 0 && Mathf.Abs(m.y) > Mathf.Abs(m.x))
         {
             _animator.SetBool("Right", false);
             _animator.SetBool("Left", false);
@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
             idleDirection = idleLook.UP;
         }
 
-        if (m.y < 0)
+        if (m.y < 0 && Mathf.Abs(m.y) > Mathf.Abs(m.x))
         {
             _animator.SetBool("Right", false);
             _animator.SetBool("Left", false);
@@ -195,56 +195,34 @@ public class Player : MonoBehaviour
         //where to attack logic
         if (attack && numberOfAttacks < 1)
         {
-            if (move.x == 1 && move.y == 0)
-            { //moving E
-                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x + offset.x, transform.position.y, 0f), Quaternion.Euler(0f, 0f, 0f));
+            float angle = Mathf.Atan2(move.x, move.y);
+            float xComp = Mathf.Cos(angle);
+            float yComp = Mathf.Sin(angle);
+            float angleFin = Mathf.Atan2(xComp, yComp) * Mathf.Rad2Deg;
+            Debug.Log(angleFin);
+            Vector2 distanceOffset = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle));
+            if(Mathf.Abs(move.x) > 0 && Mathf.Abs(move.y) > 0){
+                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x + (offset.x * distanceOffset.x), transform.position.y + (offset.y * distanceOffset.y) , 0f), Quaternion.Euler(0f, 0f, angleFin));
             }
-            if (move.x > 0 && move.y > 0)
-            { //moving NE
-                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x + offset.x, transform.position.y + offset.y, 0f), Quaternion.Euler(0f, 0f, 45f));
-            }
-            if (move.x > 0 && move.y < 0)
-            { //moving SE
-                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x + offset.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, -45f));
-            }
-            if (move.x == 0 && move.y == 1)
-            { //moving N
-                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y + offset.y, 0f), Quaternion.Euler(0f, 0f, 90f));
-            }
-            if (move.x == 0 && move.y == -1)
-            { //moving S
-                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, -90f));
-            }
-            if (move.x == -1 && move.y == 0)
-            { //moving W
-                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x - offset.x, transform.position.y, 0f), Quaternion.Euler(0f, 0f, 180f));
-            }
-            if (move.x < 0 && move.y > 0)
-            { //moving NW
-                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x - offset.x, transform.position.y + offset.y, 0f), Quaternion.Euler(0f, 0f, 135f));
-            }
-            if (move.x < 0 && move.y < 0)
-            { //moving SW
-                GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x - offset.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, -135f));
-            }
+            
             if (move.x == 0 && move.y == 0)
             { //not moving
                 //each idle state
                 if (idleDirection == idleLook.DOWN)
                 {
-                    GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, 270f));
+                    GameObject attackGameObjDir = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, 270f));
                 }
                 if (idleDirection == idleLook.UP)
                 {
-                    GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y + offset.y, 0f), Quaternion.Euler(0f, 0f, 90f));
+                    GameObject attackGameObjDir = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y + offset.y, 0f), Quaternion.Euler(0f, 0f, 90f));
                 }
                 if (idleDirection == idleLook.RIGHT)
                 {
-                    GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x + offset.x, transform.position.y, 0f), Quaternion.Euler(0f, 0f, 0f));
+                    GameObject attackGameObjDir = Instantiate(attackObj, new Vector3(this.transform.position.x + offset.x, transform.position.y, 0f), Quaternion.Euler(0f, 0f, 0f));
                 }
                 if (idleDirection == idleLook.LEFT)
                 {
-                    GameObject attackGameObj = Instantiate(attackObj, new Vector3(this.transform.position.x - offset.x, transform.position.y, 0f), Quaternion.Euler(0f, 0f, 180f));
+                    GameObject attackGameObjDir = Instantiate(attackObj, new Vector3(this.transform.position.x - offset.x, transform.position.y, 0f), Quaternion.Euler(0f, 0f, 180f));
                 }
             }
             attack = false;
@@ -320,7 +298,6 @@ public class Player : MonoBehaviour
             _manaParticles.Play();
         }
 
-        Debug.Log(tag);
         //Move from scene to scene
         if (tag.Equals("Level1Exit"))
         {
