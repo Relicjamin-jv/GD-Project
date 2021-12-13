@@ -41,7 +41,7 @@ public class Boss1Script : FSM
     public float _appearTime = 0f;
     public float _smokeLength = 0f;
     public GameObject _player;
-    //public AudioSource _as;
+    public AudioSource _as;
     public static int _numTiles = 5;
     public int _damage = 20;
     BoxCollider2D _boxC;
@@ -56,6 +56,7 @@ public class Boss1Script : FSM
     SpriteRenderer _sr;
     GameObject smoke;
     public AudioClip _dyingClip;
+    bool dead;
 
     protected override void Initialize()
     {
@@ -186,7 +187,10 @@ public class Boss1Script : FSM
     {
         //set boss bool in trapdoor script true
         TrapdoorScript._bossDead = true;
-        //_as.PlayOneShot(_dyingClip);
+        if(dead == true){
+            _as.PlayOneShot(_dyingClip);
+            dead = false;
+        }
         //destroy game object
         Destroy(gameObject, 1f);
     }

@@ -18,6 +18,9 @@ public class GnevernScript : FSM
 
     public GameObject _portal;
     public GameObject _crystal;
+    public AudioSource _as;
+    public AudioClip _dyingClip;
+    bool dead;
 
     protected override void Initialize()
     {
@@ -56,6 +59,11 @@ public class GnevernScript : FSM
         Destroy(gameObject);//TODO: re-add delay if using particles
         _portal.SetActive(true);
         _crystal.SetActive(false);
+        if (dead == true)
+        {
+            _as.PlayOneShot(_dyingClip);
+            dead = false;
+        }
     }
 
 

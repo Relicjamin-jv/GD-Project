@@ -28,6 +28,7 @@ public class rangeBasicEnemyFSM : FSM
     public GameObject rangedWeapon;
     public AudioClip _dyingClip;
     public AudioSource _as;
+    bool dead = false;
 
     protected override void Initialize()
     {
@@ -131,7 +132,10 @@ public class rangeBasicEnemyFSM : FSM
 
     protected void UpdateDeadState()
     {
-        _as.PlayOneShot(_dyingClip);
+        if(dead == false){
+            _as.PlayOneShot(_dyingClip);
+            dead = true;
+        }
         Destroy(gameObject, 1f);
     }
 
