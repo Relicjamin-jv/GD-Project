@@ -434,7 +434,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &377071502
 GameObject:
@@ -595,7 +595,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &660778031
 GameObject:
@@ -1594,7 +1594,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1292354596
 GameObject:
@@ -2717,17 +2717,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5459736696997790224, guid: fb69083e95e5fac48aa3bc9027836301, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459736696997790224, guid: fb69083e95e5fac48aa3bc9027836301, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459736696997790224, guid: fb69083e95e5fac48aa3bc9027836301, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7001507551003292850, guid: fb69083e95e5fac48aa3bc9027836301, type: 3}
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7001507551003292850, guid: fb69083e95e5fac48aa3bc9027836301, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.85
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7001507551003292850, guid: fb69083e95e5fac48aa3bc9027836301, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7001507551003292850, guid: fb69083e95e5fac48aa3bc9027836301, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2765,6 +2777,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: gnevern_0
       objectReference: {fileID: 0}
+    - target: {fileID: 8112055760374130100, guid: fb69083e95e5fac48aa3bc9027836301, type: 3}
+      propertyPath: m_TagString
+      value: Gnevern
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb69083e95e5fac48aa3bc9027836301, type: 3}
 --- !u!1 &5019346466562606728 stripped
@@ -2784,12 +2800,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21881d6435edbfb40b16b0a07ca648cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curState: 1
-  health: 10
+  health: 30
+  _attackParticles: {fileID: 5132168004289083415, guid: 58dc2cbf2d529c248a5d288d376666ec, type: 3}
   _portal: {fileID: 769890527}
   _crystal: {fileID: 491985149}
   _as: {fileID: 0}
   _dyingClip: {fileID: 8300000, guid: d9aa82a4285c9bb4fb2cc52af2b8d264, type: 3}
+--- !u!58 &5019346466562606730
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5019346466562606728}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.35
 --- !u!1001 &6473268721836045633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2803,7 +2835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6473268721903746229, guid: 2175dddf400e981429c741f6cc30b195, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6473268721903746229, guid: 2175dddf400e981429c741f6cc30b195, type: 3}
       propertyPath: m_LocalPosition.x

@@ -24,6 +24,7 @@ TagManager:
   - StonemouthExitCover
   - HealthPot
   - ManaPot
+  - Gnevern
   layers:
   - Default
   - TransparentFX
