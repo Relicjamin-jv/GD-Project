@@ -424,6 +424,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4612677495506719377, guid: 9793740e9c0a3774e8d681251b4dcd75, type: 3}
+      propertyPath: _as
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612677495506719377, guid: 9793740e9c0a3774e8d681251b4dcd75, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612677495506719377, guid: 9793740e9c0a3774e8d681251b4dcd75, type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 506729761}
@@ -459,6 +467,10 @@ PrefabInstance:
       propertyPath: _ExplosionPrefab
       value: 
       objectReference: {fileID: 3764720911357496830, guid: 988a5b52f0846044aabc3486d1aa91dc, type: 3}
+    - target: {fileID: 4612677495506719377, guid: 9793740e9c0a3774e8d681251b4dcd75, type: 3}
+      propertyPath: _timeBeforeExplosion
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9793740e9c0a3774e8d681251b4dcd75, type: 3}
 --- !u!4 &302556744 stripped

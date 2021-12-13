@@ -24,18 +24,21 @@ public class Boss1Script : FSM
     public float _appearTime = 0f;
     public float _smokeLength = 0f;
     public GameObject _player;
-    public AudioSource _as;
+    //public AudioSource _as;
+    public static int _numTiles = 5;
+    public int _damage = 10;
 
-    int r, c;
+    int[] r, c = new int[_numTiles];
     public float newAlpha;
     SpriteRenderer _colSR;
+    ArrayList _colliders = new ArrayList();
     SpriteRenderer _sr;
     GameObject smoke;
     public AudioClip _dyingClip;
 
     protected override void Initialize()
     {
-        _as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
+        //_as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         _renderer = GetComponent<Renderer>();
         _transform = transform;
         _sr = this.GetComponent<SpriteRenderer>();
@@ -76,20 +79,27 @@ public class Boss1Script : FSM
 
     protected void UpdateHideState()
     { 
-        _colSR.color = new Color(255f, 0, 0, .25f);
+        foreach (SpriteRenderer col in _colliders)
+        {
+            col.color = new Color(255f, 0, 0, .25f);
+        }
 
         _timeBeforeExplosion -= Time.deltaTime;
         if (_timeBeforeExplosion < 0)
         {
             _timeBeforeExplosion = 5f;
-            _grid[r, c].GetComponent<ParticleSystem>().Play();
-            //if ((_grid[r, c].transform.position.x >= _player.transform.position.x) &&
-            //(_grid[r, c].transform.position.y == _player.transform.position.y))
-            if (Vector2.Distance(_grid[r,c].transform.position, _player.transform.position) < .5f)
+            for (int i=0; i < _colliders.Capacity; i++)
             {
-                Player.health--;
+                _grid[r[i], c[i]].GetComponent<ParticleSystem>().Play();
+                if (Vector2.Distance(_grid[r[i], c[i]].transform.position, _player.transform.position) < .5f)
+                {
+                    Player.health -= _damage;
+                }
             }
-            _colSR.color = new Color(255f, 0, 0, 0);
+            foreach (SpriteRenderer col in _colliders)
+            {
+                col.color = new Color(255f, 0, 0, 0);
+            }
             curState = FSMState.Appear;
             _smoke.Clear();
             //appear
@@ -112,9 +122,15 @@ public class Boss1Script : FSM
             _renderer.enabled = false;
 
             //choose a tile
-            r = Random.Range(0, 4);
-            c = Random.Range(0, 3);
-            _colSR = _grid[r, c].GetComponent<SpriteRenderer>();
+            for (int i=0; i<_numTiles; i++)
+            {
+                do {
+                    r[i] =Random.Range(0, 5);
+                    c[i] = Random.Range(0, 4);
+                    _colSR = _grid[r[i], c[i]].GetComponent<SpriteRenderer>();
+                } while (_colliders.Contains(_colSR));
+                _colliders.Add(_colSR);
+            }
 
             newAlpha = 0f;
         }
@@ -124,14 +140,14 @@ public class Boss1Script : FSM
     {
         //set boss bool in trapdoor script true
         TrapdoorScript._bossDead = true;
-        _as.PlayOneShot(_dyingClip);
+        //_as.PlayOneShot(_dyingClip);
         //destroy game object
         Destroy(gameObject, 1f);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         string tag = other.gameObject.tag;
-        if(tag == "attack"){
+        if(tag == "attack" && curState != FSMState.Hide){
              health--;
             _sr.color = new Color(1, 0, 0);
             Invoke("resetColor", .5f);
