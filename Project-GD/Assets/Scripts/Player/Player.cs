@@ -35,7 +35,12 @@ public class Player : MonoBehaviour
     public static int health = 100;
     public static float maxMana = 100f;
     public static int maxHealth = 100;
+    public static float fireBallCost = 10;
     public static SpriteRenderer _sp;
+    public static int _healthPotAmount = 10;
+    public static int _manaPotAmount = 50;
+    ParticleSystem _healthBuff;
+    public ParticleSystem _manaParticles;
 
 
     public Text _lives;
@@ -45,6 +50,7 @@ public class Player : MonoBehaviour
     {
         offset = new Vector3(.5f, .5f, 0f);
         _sp = gameObject.GetComponent<SpriteRenderer>();
+        _healthBuff = GetComponent<ParticleSystem>();
     }
 
     private void Awake()
@@ -67,7 +73,7 @@ public class Player : MonoBehaviour
         //ranged
         controls.Gameplay.RangedAttack.started += context =>
         {
-            if (mana >= 20)
+            if (mana >= fireBallCost)
             {
                 rangedAttack = true;
                 canMove = false;
@@ -75,7 +81,7 @@ public class Player : MonoBehaviour
         };
         controls.Gameplay.RangedAttack.canceled += context =>
         {
-            if (mana >= 20)
+            if (mana >= fireBallCost)
             {
                 rangeFire();
             }
@@ -156,7 +162,7 @@ public class Player : MonoBehaviour
         //melee attack logic
         meleeAttacking();
 
-        if (rangedAttack && mana >= 20)
+        if (rangedAttack && mana >= fireBallCost)
         { //how much power to put behind it
             powerCharge();
         } //the button has been released fire the arrow based on how much power is behind it
@@ -301,6 +307,17 @@ public class Player : MonoBehaviour
             _sp.color = new Color(1, 0, 0);
             //slashScript.slashSR.enabled = true;
             Invoke("resetPlayerColor", .5f);
+        }
+
+        if (tag == "HealthPot")
+        {
+            _healthBuff.Play(); 
+        }
+
+        if (tag.Equals("ManaPot"))
+        {
+            Instantiate(_manaParticles, transform.position, Quaternion.identity);
+            _manaParticles.Play();
         }
 
         Debug.Log(tag);

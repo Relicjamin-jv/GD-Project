@@ -22,6 +22,8 @@ TagManager:
   - Lvl2.5Scene1Exit
   - Lvl2.5Scene3Exit
   - StonemouthExitCover
+  - HealthPot
+  - ManaPot
   layers:
   - Default
   - TransparentFX

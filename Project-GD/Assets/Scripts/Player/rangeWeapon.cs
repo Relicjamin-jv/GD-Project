@@ -16,7 +16,7 @@ public class rangeWeapon : MonoBehaviour
     Rigidbody2D _rigidbody;
     private void Start() {
         _transform = this.transform;
-        Player.mana -= 20;
+        Player.mana -= Player.fireBallCost;
         Debug.Log(Player.mana);
         _rigidbody = GetComponent<Rigidbody2D>();
 
@@ -67,7 +67,7 @@ public class rangeWeapon : MonoBehaviour
         string tag = other.gameObject.tag;
         Debug.Log(tag);
         if(tag == "Player" && lifeTime > 1f){
-            Player.mana -= 20; 
+            Player.mana -= Player.fireBallCost; 
             Destroy(this.gameObject);
         }
     }*/
