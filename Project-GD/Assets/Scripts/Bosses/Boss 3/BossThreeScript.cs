@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class BossThreeScript : FSM
 {
@@ -70,7 +70,7 @@ public class BossThreeScript : FSM
         {
             direction = getRandomVector2();
         }
-        if (Random.Range(0, 1000) == 0)
+        if (Random.Range(0, 100) == 0)
         {
             curState = FSMState.SHOOT;
         }
@@ -89,8 +89,8 @@ public class BossThreeScript : FSM
             dead = true;
             _as.PlayOneShot(_dyingClip);
             //do what ever your heart desires for the boss to do when he dies
-            Invoke("destroyObj", 3f);
         }
+        Invoke("destroyObj", 3f);
     }
 
     private Vector2 getRandomVector2()
@@ -142,6 +142,8 @@ public class BossThreeScript : FSM
 
     void destoryObj(){
         Destroy(this.gameObject);
+        Player.hasWon = true;
+        SceneManager.LoadScene("YouWON");
     }
 
 

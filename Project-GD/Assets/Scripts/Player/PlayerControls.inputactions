@@ -11,7 +11,8 @@
                     "id": "47b45947-3028-4be7-84d6-e1eef7dab35d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Dodge",
@@ -19,7 +20,8 @@
                     "id": "117a0252-8b98-4efa-8f76-da64a1f47d4a",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Move",
@@ -27,7 +29,8 @@
                     "id": "006a6d8d-5524-426f-b45e-346790aff18a",
                     "expectedControlType": "Stick",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Look",
@@ -35,7 +38,8 @@
                     "id": "c415b5ce-4feb-4334-9673-255ddbc5289d",
                     "expectedControlType": "Stick",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "PickUp",
@@ -43,7 +47,8 @@
                     "id": "b2b908eb-e9f9-49a2-a7e0-068f884c0e8b",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Pause",
@@ -51,7 +56,8 @@
                     "id": "aaed7ac6-93b2-4282-900c-1611bce21bda",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "KHit",
@@ -59,7 +65,8 @@
                     "id": "62835e6c-33f5-4318-89f6-b83af3454734",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "KDodge",
@@ -67,7 +74,8 @@
                     "id": "9845589f-cdc0-4866-ba59-109832e8ef09",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "KPickup",
@@ -75,15 +83,17 @@
                     "id": "d876b37e-e5f0-4d85-8601-15e3518f65e5",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "WASD",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "b3149f8e-2d92-4846-bcb7-43594c355486",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Attack",
@@ -91,7 +101,8 @@
                     "id": "c0c74b4f-1e5e-493a-a9a5-09fb33078c95",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "RangedAttack",
@@ -99,7 +110,8 @@
                     "id": "a862311e-ca12-4de3-a39a-6daf10864329",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [

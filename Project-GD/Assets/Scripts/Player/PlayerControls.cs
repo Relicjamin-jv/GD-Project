@@ -110,7 +110,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""WASD"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""b3149f8e-2d92-4846-bcb7-43594c355486"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",

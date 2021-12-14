@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DeathScene.unity
     guid: 21bcf9d78fe2c9440847af5c8a248afb
   - enabled: 1
+    path: Assets/Scenes/YouWON.unity
+    guid: 70694767205c616408ca23b37baaa2e5
+  - enabled: 1
     path: Assets/Scenes/Level1/Scene1Level1.unity
     guid: b881ab7f9d26c3a49bc7f45a04dbc8bb
   - enabled: 1

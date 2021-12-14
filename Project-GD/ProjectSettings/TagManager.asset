@@ -27,6 +27,7 @@ TagManager:
   - Collider
   - Skull
   - Gnevern
+  - Timer
   layers:
   - Default
   - TransparentFX
