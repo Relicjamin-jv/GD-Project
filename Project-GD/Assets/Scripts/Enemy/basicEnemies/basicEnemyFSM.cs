@@ -27,6 +27,7 @@ public class basicEnemyFSM : FSM
     SpriteRenderer _sp;
     public float timerAttack = 3f;
     Animator _animator;
+    public int _damage = 3;
 
     public AudioClip _dyingClip;
     public GameObject _as;
@@ -136,7 +137,7 @@ public class basicEnemyFSM : FSM
             if (timerAttack < 0)
             {
                 timerAttack = 5f;
-                Player.health--;
+                Player.health -= _damage;
                 Player._sp.color = new Color(1, 0, 0);
                 Invoke("resetPlayerColor", .5f);
             }
