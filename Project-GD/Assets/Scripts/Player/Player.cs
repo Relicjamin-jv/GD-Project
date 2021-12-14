@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     public static int _manaPotAmount = 50;
     ParticleSystem _healthBuff;
     public ParticleSystem _manaParticles;
+    public static Transform _transform;
 
 
     public Text _lives;
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour
         offset = new Vector3(.5f, .5f, 0f);
         _sp = gameObject.GetComponent<SpriteRenderer>();
         _healthBuff = GetComponent<ParticleSystem>();
+        _transform = transform;
         numberOfAttacks = 0;
     }
 
@@ -275,7 +277,7 @@ public class Player : MonoBehaviour
 
         if (tag == "eAttack")
         {
-            health--;
+            health -= 5;
             _sp.color = new Color(1, 0, 0);
             //slashScript.slashSR.enabled = true;
             Invoke("resetPlayerColor", .5f);
@@ -304,7 +306,8 @@ public class Player : MonoBehaviour
 
         if (tag.Equals("ManaPot"))
         {
-            Instantiate(_manaParticles, transform.position, Quaternion.identity);
+            ParticleSystem manaP = Instantiate(_manaParticles, transform.position, Quaternion.identity);
+            manaP.transform.parent = _transform;
             _manaParticles.Play();
         }
 
