@@ -16,6 +16,7 @@ public enum idleLook
 public class Player : MonoBehaviour
 {
     private idleLook idleDirection = idleLook.DOWN;
+    public static bool hasWon = false;
     PlayerControls controls;
     public Animator _animator;
     public Vector3 offset;
@@ -284,7 +285,7 @@ public class Player : MonoBehaviour
 
         if (tag == "SmashAttack")
         {
-            health--;
+            health -= 20;
             _sp.color = new Color(1, 0, 0);
             //slashScript.slashSR.enabled = true;
             Invoke("resetPlayerColor", .5f);
