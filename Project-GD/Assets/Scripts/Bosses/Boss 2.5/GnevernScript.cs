@@ -20,7 +20,7 @@ public class GnevernScript : FSM
     bool _hasAttacked = false;
     public static int _attackPower = 20;
     bool _hit = false;
-    float _speed = 1.25f;
+    float _speed = 1.12f;
 
     float _colorChangeTime = 0;
     float _red = 255, _green = 255, _blue = 255;

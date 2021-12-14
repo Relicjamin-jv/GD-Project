@@ -165,10 +165,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curState: 0
-  chaseSpeed: 1
-  partrolSpeed: 0.2
-  health: 7
-  distanceToPlayerToChase: 5
-  timerAttack: 1.5
+  chaseSpeed: 1.5
+  partrolSpeed: 0.3
+  health: 6
+  distanceToPlayerToChase: 3
+  timerAttack: 1
+  _damage: 5
   _dyingClip: {fileID: 8300000, guid: d9aa82a4285c9bb4fb2cc52af2b8d264, type: 3}
   _as: {fileID: 0}
