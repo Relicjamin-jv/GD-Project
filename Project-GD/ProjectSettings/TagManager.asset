@@ -26,6 +26,7 @@ TagManager:
   - ManaPot
   - Collider
   - Skull
+  - Gnevern
   layers:
   - Default
   - TransparentFX

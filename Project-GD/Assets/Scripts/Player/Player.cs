@@ -288,6 +288,13 @@ public class Player : MonoBehaviour
             Invoke("resetPlayerColor", .5f);
         }
 
+        if (tag == "Gnevern")
+        {
+            health -= GnevernScript._attackPower;
+            _sp.color = new Color(1, 0, 0);
+            Invoke("resetPlayerColor", .5f);
+        }
+
         if (tag == "HealthPot")
         {
             _healthBuff.Play(); 
