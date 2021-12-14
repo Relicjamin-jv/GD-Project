@@ -7958,14 +7958,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonemouthRangedAttack
       objectReference: {fileID: 0}
-    - target: {fileID: 5399164037681007905, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
-      propertyPath: m_TagString
-      value: SmashAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 5399164037681007906, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 5399164037681007907, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -8009,22 +8001,6 @@ PrefabInstance:
     - target: {fileID: 5399164037681007907, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5399164037681007933, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5399164037681007934, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
-      propertyPath: m_Size.y
-      value: 5.0081735
-      objectReference: {fileID: 0}
-    - target: {fileID: 5399164037681007934, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5399164037681007934, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.00000023841858
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ece8f095f7948ab48ba2c5bfb2446d4d, type: 3}

@@ -12,6 +12,8 @@ public class SkullScript : MonoBehaviour
     Quaternion _rotation;
     float _rotationSpeed = 0;
     float _maxVelo = 2;
+    public bool playerKicked = false;
+    float timer = 0f;
 
 
     // Start is called before the first frame update
@@ -38,6 +40,13 @@ public class SkullScript : MonoBehaviour
         {
             _rbody.velocity.Normalize();
         }
+        if(playerKicked){
+            timer += Time.deltaTime;
+            if(timer > 3f){
+                playerKicked = false;
+                timer = 0f;
+            }
+        }
     }
 
     private void OnCollisionEnter2D (Collision2D collision)
@@ -50,6 +59,7 @@ public class SkullScript : MonoBehaviour
 
             _rotationSpeed = 0.5f;
             _rotate = true;
+            playerKicked = true;
         }
     }
 }
