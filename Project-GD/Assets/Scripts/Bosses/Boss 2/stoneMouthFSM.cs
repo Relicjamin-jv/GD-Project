@@ -156,12 +156,12 @@ public class stoneMouthFSM : FSM
     protected void UpdateDeadState()
     {
         if(dead == true){
-            portal.SetActive(true);
-            exitCover.SetActive(false);
             _as.PlayOneShot(_dyingClip);
-            Destroy(gameObject, 2f);
             dead = false;
         }
+        portal.SetActive(true);
+        exitCover.SetActive(false);
+        Destroy(gameObject, 2f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -7790,7 +7790,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1426676040, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
       propertyPath: health
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1426676040, guid: 1222741c73d2c824f91348cabb525c33, type: 3}
       propertyPath: portal
