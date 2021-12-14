@@ -10,6 +10,7 @@ public class FireScript : MonoBehaviour
 
     GameObject _player;
     Vector2 moveDirection;
+    float timer = 0f;
 
     private void Start() {
         _rb = GetComponent<Rigidbody2D>();
@@ -18,11 +19,16 @@ public class FireScript : MonoBehaviour
         _rb.velocity = new Vector2(moveDirection.x, moveDirection.y);
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        Destroy(this.gameObject);
-    }   
+    private void Update() {
+        timer += Time.deltaTime;
+        if(timer > 2f){
+            Destroy(this.gameObject);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Destroy(this.gameObject);
+        if(other.gameObject.tag == "Player"){
+            Destroy(this.gameObject);
+        }
     }
 }

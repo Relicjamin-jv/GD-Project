@@ -36,7 +36,7 @@ public class BossThreeScript : FSM
         nextPos = this.transform;
         _rb = GetComponent<Rigidbody2D>(); //get the ridgid body
         _sp = gameObject.GetComponent<SpriteRenderer>();
-        _as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
+        //_as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
 
         if (!playerTransform)
         {
@@ -140,7 +140,7 @@ public class BossThreeScript : FSM
         _sp.color = new Color(1, 1, 1);
     }
 
-    void destoryObj(){
+    void destroyObj(){
         Destroy(this.gameObject);
         Player.hasWon = true;
         SceneManager.LoadScene("YouWON");
