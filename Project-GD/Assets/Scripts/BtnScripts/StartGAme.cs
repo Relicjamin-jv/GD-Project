@@ -11,6 +11,8 @@ public class StartGAme : MonoBehaviour
         Player.numberOfAttacks = 0;
         Player.mana = 100;
         Player.health = 100;
+        Player.hasWon = false;
+        Timer.timer = 0f;
     }
 
     public void exit(){ 
@@ -22,6 +24,8 @@ public class StartGAme : MonoBehaviour
         Player.numberOfAttacks = 0;
         Player.mana = 100;
         Player.health = 100;
+        Player.hasWon = false;;
+        Timer.timer = 0f;
     }
 
     // Start is called before the first frame update
