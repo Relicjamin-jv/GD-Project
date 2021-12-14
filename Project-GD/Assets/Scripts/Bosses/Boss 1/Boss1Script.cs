@@ -29,7 +29,7 @@ public class Boss1Script : FSM
         Dead,
     }
 
-    public FSMState curState; //what state are we in now
+    public FSMState curState = FSMState.Appear; //what state are we in now
     public int health = 50; //the health of the enemy
     private Renderer _renderer;
     public GameObject _ColliderPrefab;
@@ -60,7 +60,7 @@ public class Boss1Script : FSM
 
     protected override void Initialize()
     {
-        _as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
+        //_as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         _renderer = GetComponent<Renderer>();
         _transform = transform;
         _sr = this.GetComponent<SpriteRenderer>();
