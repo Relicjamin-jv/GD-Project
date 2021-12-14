@@ -167,6 +167,14 @@ public class basicEnemyFSM : FSM
             _sp.color = new Color(1, 0, 0);
             Invoke("resetColor", .5f);
         }
+        if (tag == "fireball")
+        {
+            canMove = false;
+            Invoke("resetCanMove", .5f);
+            health -= 3;
+            _sp.color = new Color(1, 0, 0);
+            Invoke("resetColor", .5f);
+        }
     }
 
     void resetCanMove()
