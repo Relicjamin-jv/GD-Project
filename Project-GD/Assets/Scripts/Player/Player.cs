@@ -33,9 +33,9 @@ public class Player : MonoBehaviour
     public float arrowSpeed = 10f;
     bool canMove = true;
     public static int mana = 100;
-    public static int health = 100;
+    public static int health = 1000000;
     public static int maxMana = 100;
-    public static int maxHealth = 100;
+    public static int maxHealth = 1000000;
     public static int fireBallCost = 10;
     public static SpriteRenderer _sp;
     public static int _healthPotAmount = 10;
