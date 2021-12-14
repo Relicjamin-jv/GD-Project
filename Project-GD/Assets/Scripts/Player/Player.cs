@@ -208,6 +208,7 @@ public class Player : MonoBehaviour
             if (move.x == 0 && move.y == 0)
             { //not moving
                 //each idle state
+                
                 if (idleDirection == idleLook.DOWN)
                 {
                     GameObject attackGameObjDir = Instantiate(attackObj, new Vector3(this.transform.position.x, transform.position.y - offset.y, 0f), Quaternion.Euler(0f, 0f, 270f));

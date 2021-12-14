@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5399164037681007932}
   m_Layer: 0
   m_Name: StonemouthRangedAttack
-  m_TagString: Untagged
+  m_TagString: SmashAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 92b950e319410cd45a1165bbf0614734, type: 3}
   m_Color: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 0}
   m_FlipX: 0
@@ -92,13 +92,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5399164037681007905}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.00000023841858}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 5.0081735}
   m_EdgeRadius: 0
 --- !u!198 &5399164037681007933
 ParticleSystem:
@@ -127,7 +127,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -301,7 +301,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 0.3207547, g: 0.28105286, b: 0.25569597, a: 1}
-      maxColor: {r: 0.3962264, g: 0.1612682, b: 0, a: 1}
+      maxColor: {r: 0.764151, g: 0.3101999, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.4056604, g: 0.1894778, b: 0.12055002, a: 1}
