@@ -1259,7 +1259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a4040cb587a2e42b6acd464a73b5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScore: {fileID: 0}
+  highScore: {fileID: 1923142011}
 --- !u!114 &1923142011
 MonoBehaviour:
   m_ObjectHideFlags: 0
