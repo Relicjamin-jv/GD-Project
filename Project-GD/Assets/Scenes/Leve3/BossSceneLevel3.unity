@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireProjectile: {fileID: 5657179394311408409, guid: 68e220c7d312b964a8789914aefb1bf1, type: 3}
   curState: 0
-  health: 10
+  health: 30
   _dyingClip: {fileID: 8300000, guid: d9aa82a4285c9bb4fb2cc52af2b8d264, type: 3}
   _as: {fileID: 0}
 --- !u!61 &767447784

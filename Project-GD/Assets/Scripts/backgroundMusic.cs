@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class backgroundMusic : MonoBehaviour
 {
-    private void Start() {
-        DontDestroyOnLoad(this.gameObject);
+    private void Awake()
+    {
+        int numMusicPlayers = FindObjectsOfType<backgroundMusic>().Length;
+        Debug.Log(numMusicPlayers);
+        if (numMusicPlayers >= 3)
+        {
+            Destroy(this.gameObject);
+        }
+        // if more then one music player is in the scene
+        //destroy ourselves
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

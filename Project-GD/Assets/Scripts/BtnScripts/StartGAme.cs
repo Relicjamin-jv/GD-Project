@@ -28,6 +28,14 @@ public class StartGAme : MonoBehaviour
         Timer.timer = 0f;
     }
 
+    public void controlMenu(){
+        SceneManager.LoadScene("Controls");
+    }
+
+    public void backToMenu(){ 
+        SceneManager.LoadScene("MainMenu");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
