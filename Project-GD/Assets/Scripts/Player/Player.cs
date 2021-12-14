@@ -25,17 +25,17 @@ public class Player : MonoBehaviour
     public GameObject attackObj;
     private bool attack = false;
     private float timer;
-    public static int numberOfAttacks = 0;
+    public static int numberOfAttacks;
     float rangePower;
     bool rangedAttack = false;
     public GameObject arrowObj;
     public float arrowSpeed = 10f;
     bool canMove = true;
-    public static float mana = 100f;
+    public static int mana = 100;
     public static int health = 100;
-    public static float maxMana = 100f;
+    public static int maxMana = 100;
     public static int maxHealth = 100;
-    public static float fireBallCost = 10;
+    public static int fireBallCost = 10;
     public static SpriteRenderer _sp;
     public static int _healthPotAmount = 10;
     public static int _manaPotAmount = 50;
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
         _sp = gameObject.GetComponent<SpriteRenderer>();
         _healthBuff = GetComponent<ParticleSystem>();
         _transform = transform;
+        numberOfAttacks = 0;
     }
 
     private void Awake()
@@ -163,6 +164,7 @@ public class Player : MonoBehaviour
 
         //melee attack logic
         meleeAttacking();
+
 
         if (rangedAttack && mana >= fireBallCost)
         { //how much power to put behind it

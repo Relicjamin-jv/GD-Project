@@ -8,6 +8,9 @@ public class StartGAme : MonoBehaviour
 
     public void startGame(){
         SceneManager.LoadScene("Scene1Level1");
+        Player.numberOfAttacks = 0;
+        Player.mana = 100;
+        Player.health = 100;
     }
 
     public void exit(){ 
@@ -16,6 +19,9 @@ public class StartGAme : MonoBehaviour
 
     public void restartGame(){ 
         SceneManager.LoadScene("Scene1Level1");
+        Player.numberOfAttacks = 0;
+        Player.mana = 100;
+        Player.health = 100;
     }
 
     // Start is called before the first frame update
