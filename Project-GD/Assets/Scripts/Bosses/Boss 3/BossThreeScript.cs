@@ -126,6 +126,12 @@ public class BossThreeScript : FSM
             _sp.color = new Color(1, 0, 0);
             Invoke("resetColor", .5f);
         }
+        if (tag == "fireball")
+        {
+            health -= 3;
+            _sp.color = new Color(1, 0, 0);
+            Invoke("resetColor", .5f);
+        }
 
     }
 

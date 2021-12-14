@@ -60,7 +60,7 @@ public class Boss1Script : FSM
 
     protected override void Initialize()
     {
-        //_as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
+        _as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         _renderer = GetComponent<Renderer>();
         _transform = transform;
         _sr = this.GetComponent<SpriteRenderer>();
@@ -124,7 +124,7 @@ public class Boss1Script : FSM
                 if (sqr.isExploding)
                 {
                     sqr.gridCollider.GetComponent<ParticleSystem>().Play();
-                    if (Vector2.Distance(sqr.gridCollider.transform.position, _player.transform.position) < .4f)
+                    if (Vector2.Distance(sqr.gridCollider.transform.position, _player.transform.position) < .5f)
                     {
                         _tookDamage = true;
                     }
@@ -207,6 +207,13 @@ public class Boss1Script : FSM
         if (tag == "attack" && curState != FSMState.Hide)
         {
             health--;
+            _sr.color = new Color(1, 0, 0);
+            Invoke("resetColor", .5f);
+        }
+        if (tag == "fireball")
+        {
+            Invoke("resetCanMove", .5f);
+            health -= 3;
             _sr.color = new Color(1, 0, 0);
             Invoke("resetColor", .5f);
         }

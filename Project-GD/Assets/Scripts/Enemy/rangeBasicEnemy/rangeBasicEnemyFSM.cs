@@ -32,7 +32,7 @@ public class rangeBasicEnemyFSM : FSM
 
     protected override void Initialize()
     {
-        //_as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
+        _as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         curState = FSMState.Partrol;
         _transform = this.transform;
@@ -132,7 +132,7 @@ public class rangeBasicEnemyFSM : FSM
     protected void UpdateDeadState()
     {
         if(dead == false){
-            //_as.PlayOneShot(_dyingClip);
+            _as.PlayOneShot(_dyingClip);
             dead = true;
         }
         Destroy(gameObject, 1f);
@@ -147,6 +147,14 @@ public class rangeBasicEnemyFSM : FSM
             canMove = false;
             Invoke("resetCanMove", .5f);
             health--;
+            _sp.color = new Color(1, 0, 0);
+            Invoke("resetColor", .5f);
+        }
+        if (tag == "fireball")
+        {
+            canMove = false;
+            Invoke("resetCanMove", .5f);
+            health -= 3;
             _sp.color = new Color(1, 0, 0);
             Invoke("resetColor", .5f);
         }

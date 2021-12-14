@@ -127,6 +127,13 @@ public class GnevernScript : FSM
             _sp.color = new Color(1, 0, 0);
             Invoke("resetColor", .25f);
         }
+        if (tag == "fireball")
+        {
+            _hit = true;
+            health -= 3;
+            _sp.color = new Color(1, 0, 0);
+            Invoke("resetColor", .5f);
+        }
     }
 
     private void UpdateColor()
