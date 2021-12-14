@@ -70,7 +70,7 @@ public class Boss1Script : FSM
         _smoke = smoke.GetComponent<ParticleSystem>();
         //curState = FSMState.Appear;
         x = -1.23f;
-        y=-2.3f;
+        y = -2.3f;
         _boxC = GetComponent<BoxCollider2D>();
 
         int count = 0;
@@ -79,7 +79,7 @@ public class Boss1Script : FSM
             x = -1.23f;
             for (int c = 0; c < 4; c++)
             {
-                _grid.Add(new GridObject(count, r, c, 
+                _grid.Add(new GridObject(count, r, c,
                     Instantiate(_ColliderPrefab, new Vector2(x, y), Quaternion.identity), false));
                 x += .855f;
                 count++;
@@ -124,19 +124,23 @@ public class Boss1Script : FSM
                 if (sqr.isExploding)
                 {
                     sqr.gridCollider.GetComponent<ParticleSystem>().Play();
-                    if (_tookDamage)//Vector2.Distance(sqr.gridCollider.transform.position, _player.transform.position) < .4f)
+                    if (Vector2.Distance(sqr.gridCollider.transform.position, _player.transform.position) < .4f)
                     {
-                        Player.health -= _damage;
-                        _tookDamage = false;
+                        _tookDamage = true;
                     }
                     sqr.gridCollider.GetComponent<SpriteRenderer>().color = new Color(255f, 0, 0, 0);
                     sqr.isExploding = false;
                 }
             }
+            if (_tookDamage)
+            {
+                Player.health -= _damage;
+                _tookDamage = false;
+            }
             _smoke.Clear();
             curState = FSMState.Appear;
             //appear
-            Vector2 randomPos = new Vector2(Random.Range(-1.11f,1.15f), Random.Range(-1.3f, .7f));
+            Vector2 randomPos = new Vector2(Random.Range(-1.11f, 1.15f), Random.Range(-1.3f, .7f));
             this.transform.position = randomPos;
             smoke.transform.position = randomPos;
             _renderer.enabled = true;
@@ -158,7 +162,8 @@ public class Boss1Script : FSM
                 if (_grid[dontExplode] == sqr)
                 {
                     sqr.isExploding = false;
-                } else
+                }
+                else
                 {
                     sqr.isExploding = true;
                 }
@@ -187,7 +192,8 @@ public class Boss1Script : FSM
     {
         //set boss bool in trapdoor script true
         TrapdoorScript._bossDead = true;
-        if(dead == true){
+        if (dead == true)
+        {
             _as.PlayOneShot(_dyingClip);
             dead = false;
         }
