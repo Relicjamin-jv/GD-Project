@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class HealthBarScript : MonoBehaviour
 {
     private Image _healthBar;
-    public int _curHealth = Player.health;
-    public int _maxHealth = Player.health;
+    int _curHealth;
+    int _maxHealth;
 
     void Start()
     {
         _healthBar = GetComponent<Image>();
         _curHealth = Player.health;
+        _maxHealth = Player.maxHealth;
     }
 
     void Update()
