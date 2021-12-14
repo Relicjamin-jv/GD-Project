@@ -8,7 +8,6 @@ public class rangeBasicEnemyFSM : FSM
     {
         None,
         Partrol,
-        Chase,
         Attack,
         Dead,
     }
@@ -22,6 +21,7 @@ public class rangeBasicEnemyFSM : FSM
     private Rigidbody2D _rigidbody;
     private Vector2 nextPos;
     public float distanceToPlayerToChase = 5f;
+    public float distanceToAttack = 3f;
     bool canMove = true;
     SpriteRenderer _sp;
     public float timerAttack = 3f;
@@ -32,7 +32,7 @@ public class rangeBasicEnemyFSM : FSM
 
     protected override void Initialize()
     {
-        _as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
+        //_as = GameObject.FindGameObjectWithTag("SFX").GetComponent<AudioSource>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         curState = FSMState.Partrol;
         _transform = this.transform;
@@ -56,7 +56,6 @@ public class rangeBasicEnemyFSM : FSM
             switch (curState)
             {
                 case FSMState.Partrol: UpdatePartrolState(); break;
-                case FSMState.Chase: UpdateChaseState(); break;
                 case FSMState.Attack: UpdateAttackState(); break;
                 case FSMState.Dead: UpdateDeadState(); break;
             }
@@ -79,15 +78,15 @@ public class rangeBasicEnemyFSM : FSM
         { //it got to its destination
             nextPos = new Vector2(this.transform.position.x + Random.Range(-.5f, .5f), this.transform.position.y + Random.Range(-.5f, .5f));
         }
-        else if (Vector2.Distance(_transform.position, playerTransform.position) < distanceToPlayerToChase)
+        else if (Vector2.Distance(_transform.position, playerTransform.position) < distanceToAttack)
         {
-            curState = FSMState.Chase;
+            curState = FSMState.Attack;
         }
 
         transform.position = Vector2.MoveTowards(this.transform.position, nextPos, curSpeed * Time.deltaTime); //start moving towards the player
     }
 
-    protected void UpdateChaseState()
+    /*protected void UpdateChaseState()
     {
         if(playerTransform.position.x > transform.position.x){
             _sp.flipX = true;
@@ -95,18 +94,18 @@ public class rangeBasicEnemyFSM : FSM
             _sp.flipX = false;
         }
         curSpeed = chaseSpeed;
-        if (Vector2.Distance(_transform.position, playerTransform.position) > 3f)
+        if (Vector2.Distance(_transform.position, playerTransform.position) > distanceToPlayerToChase)
         { //it got to its destination
             curState = FSMState.Partrol;
         }
 
-        if (Vector2.Distance(_transform.position, playerTransform.position) < 3f)
+        if (Vector2.Distance(_transform.position, playerTransform.position) < distanceToAttack)
         {
             curState = FSMState.Attack;
         }
 
         transform.position = Vector2.MoveTowards(this.transform.position, playerTransform.position, curSpeed * Time.deltaTime); //start moving towards the player
-    }
+    }*/
 
     protected void UpdateAttackState()
     {
@@ -115,9 +114,9 @@ public class rangeBasicEnemyFSM : FSM
         }else{
             _sp.flipX = false;
         }
-        if (Vector2.Distance(_transform.position, playerTransform.position) > 3f)
+        if (Vector2.Distance(_transform.position, playerTransform.position) > distanceToAttack)
         {
-            curState = FSMState.Chase;
+            curState = FSMState.Partrol;
         }
         else
         {
@@ -133,7 +132,7 @@ public class rangeBasicEnemyFSM : FSM
     protected void UpdateDeadState()
     {
         if(dead == false){
-            _as.PlayOneShot(_dyingClip);
+            //_as.PlayOneShot(_dyingClip);
             dead = true;
         }
         Destroy(gameObject, 1f);

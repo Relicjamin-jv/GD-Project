@@ -148,7 +148,7 @@ public class basicEnemyFSM : FSM
     protected void UpdateDeadState()
     {
         if(play){
-            _as.GetComponent<AudioSource>().PlayOneShot(_dyingClip);
+            //_as.GetComponent<AudioSource>().PlayOneShot(_dyingClip);
             play = false;
             Debug.Log("played");
         }

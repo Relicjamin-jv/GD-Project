@@ -275,7 +275,7 @@ public class Player : MonoBehaviour
 
         if (tag == "eAttack")
         {
-            health--;
+            health -= 5;
             _sp.color = new Color(1, 0, 0);
             //slashScript.slashSR.enabled = true;
             Invoke("resetPlayerColor", .5f);
